@@ -1,0 +1,32 @@
+{
+  "name": "myblog_nuxt_ts_contentful",
+  "version": "1.0.0",
+  "description": "My stupendous Nuxt.js project",
+  "author": "shunta",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt-ts",
+    "build": "nuxt-ts build",
+    "generate": "nuxt-ts generate",
+    "start": "nuxt-ts start",
+    "lint": "eslint --ext .js, .ts, .vue --ignore-path .gitignore ."
+  },
+  "dependencies": {
+    "@nuxt/typescript-runtime": "^0.3.9",
+    "eslint-loader": "^3.0.3",
+    "nuxt": "^2.0.0",
+    "nuxt-buefy": "^0.3.23"
+  },
+  "devDependencies": {
+    "@nuxt/typescript-build": "^0.5.7",
+    "@nuxtjs/eslint-config-typescript": "^1.0.2",
+    "@nuxtjs/eslint-module": "^1.0.0",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-nuxt": "^0.5.1",
+    "eslint-plugin-prettier": "^3.1.2",
+    "prettier": "^1.19.1",
+    "vue-property-decorator": "^8.4.0"
+  }
+}
