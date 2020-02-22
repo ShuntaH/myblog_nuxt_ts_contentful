@@ -1,3 +1,5 @@
+const createClient = require('./plugins/contentful')
+require('dotenv').config()
 export default {
   mode: 'universal',
   /*
@@ -27,7 +29,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: ['~/plugins/contentful'],
   /*
    ** Nuxt.js dev-modules
    */
@@ -42,12 +44,38 @@ export default {
   modules: [
     [
       'nuxt-buefy',
+      '@nuxtjs/dotenv',
+      '@nuxtjs/markdownit',
       {
         css: false
         // materialDesignIcons: false
       }
     ]
   ],
+  markdownit: {
+    injected: true,
+    html: true,
+    linkify: true,
+    typography: true
+  },
+  generate: {
+    routes() {
+      const client = createClient()
+      return client
+        .getEntries({
+          content_type: 'post'
+        })
+        .then((entries: any) => {
+          return [
+            ...entries.items.map((entry: any) => `posts/${entry.fields.slug}`)
+          ]
+        })
+    }
+  },
+  env: {
+    CTF_SPACE_ID: process.env.CTF_SPACE_ID,
+    CTF_ACCESS_TOKEN: process.env.CTF_ACCESS_TOKEN
+  },
   /*
    ** Build configuration
    */
