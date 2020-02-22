@@ -1,47 +1,46 @@
 <template>
-  <div class="container">
-    <div>
-      <logo />
-      <h1 class="title">
-        kitty ไอโรคจิต
-      </h1>
-      <h2 class="subtitle">
-        My great Nuxt.js project
-      </h2>
-      <template>
-        <section class="container">
-          <b-switch>switch</b-switch>
-        </section>
-      </template>
-      <div class="links">
-        <a href="https://nuxtjs.org/" target="_blank" class="button--green">
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
+  <div class="posts">
+    <div v-for="(post, index) in posts" :key="index" class="post">
+      {{ post.fields.title }}
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { Vue, Component } from 'vue-property-decorator'
-import Logo from '~/components/Logo.vue'
+import { Component, Vue } from 'vue-property-decorator'
+import { createClient } from '~/plugins/contentful'
+
+const client = createClient()
 
 @Component({
-  components: {
-    Logo
+  // `env` is available in the context object
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  asyncData() {
+    return Promise.all([
+      // fetch the owner of the blog
+      // client.getEntries({
+      //   'sys.id': env.CTF_PERSON_ID
+      // }),
+      // fetch all blog posts sorted by creation date
+      client.getEntries({
+        content_type: 'post',
+        order: '-sys.createdAt'
+      })
+    ])
+      .then(([posts]) => {
+        // return data that should be available
+        // in the template
+        return {
+          // eslint-disable-next-line no-undef
+          posts: posts.items
+        }
+      })
+      .catch(console.error)
   }
 })
 export default class IndexPage extends Vue {}
 </script>
-
-<style>
+<style lang="scss">
 .container {
   margin: 0 auto;
   min-height: 100vh;
