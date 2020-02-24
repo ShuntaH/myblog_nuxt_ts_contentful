@@ -1,6 +1,8 @@
 # myblog_nuxt_ts_contentful
 
-> My stupendous Nuxt.js project
+ My first product using javascript
+ 
+##
 
 ## Build Setup
 
@@ -20,4 +22,4 @@ $ npm run generate
 ```
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
-# myblog_nuxt_ts_contentful
+
