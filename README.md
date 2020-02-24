@@ -1,8 +1,11 @@
 # myblog_nuxt_ts_contentful
 
- My first product using javascript
+MacOS + Nuxt.js + TypeScript + Buefy + contentful + Netlify + WebStorm
+
+## Description
+This is my first product using javascript.<br>
+Simple blog.
  
-##
 
 ## Build Setup
 
