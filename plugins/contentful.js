@@ -8,6 +8,8 @@ const config = {
 }
 
 // export `createClient` to use it in page components
-export function createClient() {
-  return contentful.createClient(config)
+module.exports = {
+  createClient() {
+    return contentful.createClient(config)
+  }
 }
