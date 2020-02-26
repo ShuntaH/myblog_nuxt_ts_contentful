@@ -1,10 +1,38 @@
 <template>
-  <div>
-    <nuxt />
+  <div class="has-background-black-ter">
+    <Navbar></Navbar>
+    <Slider></Slider>
+    <div class="wrapper">
+      <div class="columns">
+        <div class="column is-two-thirds">
+          <nuxt />
+        </div>
+        <div class="column is-one-thirds">
+          <Sidebar></Sidebar>
+        </div>
+      </div>
+    </div>
+    <Footer></Footer>
   </div>
 </template>
 
-<style>
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator'
+import Navbar from '~/components/Navbar.vue'
+import Footer from '~/components/Footer.vue'
+import Sidebar from '~/components/Sidebar.vue'
+import Slider from '~/components/Slider.vue'
+@Component({
+  components: {
+    Sidebar,
+    Slider,
+    Navbar,
+    Footer
+  }
+})
+export default class extends Vue {}
+</script>
+<style lang="scss">
 html {
   font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
     Roboto, 'Helvetica Neue', Arial, sans-serif;
@@ -51,5 +79,29 @@ html {
 .button--grey:hover {
   color: #fff;
   background-color: #35495e;
+}
+
+@media screen and (max-width: 639px) {
+  /*スマホ用のcssを記述*/
+  .wrapper {
+    padding: 20px 30px;
+    margin: 0 auto;
+  }
+}
+
+@media only screen and (min-width: 640px) and (max-width: 1023px) {
+  /*tablet用のcssを記述*/
+  .wrapper {
+    padding: 30px 40px;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  /*pc用のcssを記述*/
+  .wrapper {
+    padding: 30px 200px;
+    margin: 0 auto;
+  }
 }
 </style>
