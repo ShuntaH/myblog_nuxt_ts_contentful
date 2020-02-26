@@ -14,22 +14,6 @@
       >
         About
       </b-navbar-item>
-      <b-navbar-dropdown
-        label="Category"
-        class="has-text-grey-lighter has-text-weight-medium is-italic"
-      >
-        <b-navbar-item href="#" class="has-text-grey-lighter">
-          Travel
-        </b-navbar-item>
-        <b-navbar-item
-          href="#"
-          class="has-text-grey-lighter has-text-weight-medium is-italic"
-        >
-          Language
-        </b-navbar-item>
-      </b-navbar-dropdown>
-    </template>
-    <template slot="end">
       <b-navbar-item
         href="#"
         class="has-text-grey-lighter has-text-weight-medium is-italic"

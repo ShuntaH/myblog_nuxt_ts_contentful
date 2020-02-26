@@ -1,6 +1,7 @@
 <template>
-  <section>
+  <div>
     <b-carousel
+      class="bulma-carousel"
       :indicator="indicator"
       :indicator-background="indicatorBackground"
       :indicator-inside="indicatorInside"
@@ -15,19 +16,13 @@
         ></section>
       </b-carousel-item>
     </b-carousel>
-  </section>
+  </div>
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 
 @Component
-export default class Carousel extends Vue {
-  indicator = true
-  indicatorBackground = true
-  indicatorInside = true
-  indicatorMode = 'hover'
-  indicatorPosition = 'is-top'
-  indicatorStyle = 'is-lines'
+export default class Slider extends Vue {
   carousels = [
     { title: 'Slide 1', img: 'carousel-img1' },
     { title: 'Slide 2', img: 'carousel-img2' },
@@ -35,6 +30,13 @@ export default class Carousel extends Vue {
     { title: 'Slide 4', img: 'carousel-img4' },
     { title: 'Slide 4', img: 'carousel-img5' }
   ]
+
+  indicator = true
+  indicatorBackground = true
+  indicatorInside = true
+  indicatorMode = 'hover'
+  indicatorPosition = 'is-top'
+  indicatorStyle = 'is-lines'
 }
 </script>
 
@@ -68,19 +70,26 @@ export default class Carousel extends Vue {
   .carousel-height {
     height: 260px;
   }
+  .bulma-carousel {
+    margin-bottom: 40px;
+  }
 }
-
 @media only screen and (min-width: 640px) and (max-width: 1023px) {
   /*tablet用のcssを記述*/
   .carousel-height {
     height: 300px;
   }
+  .bulma-carousel {
+    margin-bottom: 100px;
+  }
 }
-
 @media screen and (min-width: 1024px) {
   /*pc用のcssを記述*/
   .carousel-height {
     height: 400px;
+  }
+  .bulma-carousel {
+    margin-bottom: 140px;
   }
 }
 </style>

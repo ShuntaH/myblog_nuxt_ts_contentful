@@ -1,4 +1,4 @@
-const createClient = require('./plugins/contentful')
+import { createClient } from './plugins/contentful'
 require('dotenv').config()
 export default {
   mode: 'universal',
@@ -59,18 +59,18 @@ export default {
     typography: true
   },
   generate: {
-    routes() {
-      const client = createClient()
-      return client
-        .getEntries({
-          content_type: 'post'
-        })
-        .then((entries: any) => {
-          return [
-            ...entries.items.map((entry: any) => `posts/${entry.fields.slug}`)
-          ]
-        })
-    }
+    // routes() {
+    //   const client = createClient()
+    //   return client
+    //     .getEntries({
+    //       content_type: 'post'
+    //     })
+    //     .then((entries: any) => {
+    //       return [
+    //         ...entries.items.map((entry: any) => `posts/${entry.fields.slug}`)
+    //       ]
+    //     })
+    // }
   },
   env: {
     CTF_SPACE_ID: process.env.CTF_SPACE_ID,

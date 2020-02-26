@@ -8,8 +8,9 @@
           <br />
           <small
             >Powered by
-            <strong
-              ><a href="https://nuxtjs.org/">Nuxt.js * TypeScript</a></strong
+            <strong><a href="https://nuxtjs.org/">Nuxt.js</a></strong> with
+            <strong>
+              <a href="https://www.typescriptlang.org/">TypeScript</a></strong
             >
             | Theme by <strong><a href="https://buefy.org/">Buefy</a></strong>
           </small>
