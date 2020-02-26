@@ -59,18 +59,7 @@ export default {
     typography: true
   },
   generate: {
-    // routes() {
-    //   const client = createClient()
-    //   return client
-    //     .getEntries({
-    //       content_type: 'post'
-    //     })
-    //     .then((entries: any) => {
-    //       return [
-    //         ...entries.items.map((entry: any) => `posts/${entry.fields.slug}`)
-    //       ]
-    //     })
-    // }
+    routes: ['/']
   },
   env: {
     CTF_SPACE_ID: process.env.CTF_SPACE_ID,
