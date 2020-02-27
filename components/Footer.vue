@@ -16,7 +16,7 @@
           </small>
         </p>
         <a class="icon is-large" href="/">
-          <img src="images/bloglogo.png" alt="Blog-logo" />
+          <img :src="blogLogo" alt="Blog-logo" />
         </a>
       </div>
     </div>
@@ -24,8 +24,13 @@
 </template>
 
 <script lang="ts">
-import { Vue } from 'vue-property-decorator'
-export default class Footer extends Vue {}
+import { Component, Vue } from 'vue-property-decorator'
+import blogLogo from 'static/images/bloglogo.png'
+
+@Component({})
+export default class Navbar extends Vue {
+  blogLogo = blogLogo
+}
 </script>
 
 <style lang="scss" scoped>
