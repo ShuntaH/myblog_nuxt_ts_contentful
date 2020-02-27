@@ -1,5 +1,8 @@
-const client = require('./plugins/contentful')
+// eslint-disable-next-line import/named,@typescript-eslint/no-unused-vars
+import { ContentfulClientApi, Entry, EntryCollection } from 'contentful'
+const contentful = require('contentful')
 require('dotenv').config()
+
 export default {
   mode: 'universal',
   /*
@@ -41,17 +44,7 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: [
-    [
-      'nuxt-buefy',
-      '@nuxtjs/dotenv',
-      '@nuxtjs/markdownit',
-      {
-        css: false
-        // materialDesignIcons: false
-      }
-    ]
-  ],
+  modules: ['nuxt-buefy', '@nuxtjs/dotenv', '@nuxtjs/markdownit'],
   markdownit: {
     injected: true,
     html: true,
@@ -59,7 +52,23 @@ export default {
     typography: true
   },
   generate: {
-    routes: ['/']
+    routes() {
+      const client: ContentfulClientApi = contentful.createClient({
+        space: process.env.CTF_SPACE_ID,
+        accessToken: process.env.CTF_ACCESS_TOKEN
+      })
+
+      return client
+        .getEntries({ content_type: 'post' })
+        .then((entries: EntryCollection<any>) => {
+          return entries.items.map((entry: Entry<any>) => {
+            return {
+              route: '/posts/' + entry.fields.slug,
+              payload: entry
+            }
+          })
+        })
+    }
   },
   env: {
     CTF_SPACE_ID: process.env.CTF_SPACE_ID,

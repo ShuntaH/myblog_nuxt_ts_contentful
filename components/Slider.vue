@@ -80,7 +80,7 @@ export default class Slider extends Vue {
     height: 300px;
   }
   .bulma-carousel {
-    margin-bottom: 100px;
+    margin-bottom: 60px;
   }
 }
 @media screen and (min-width: 1024px) {
@@ -89,7 +89,7 @@ export default class Slider extends Vue {
     height: 400px;
   }
   .bulma-carousel {
-    margin-bottom: 140px;
+    margin-bottom: 100px;
   }
 }
 </style>
