@@ -1,6 +1,6 @@
 <template>
   <b-menu>
-    <h3 class="is-size-5 has-text-white-ter has-text-centered">Menu</h3>
+    <h3 class="subtitle">Menu</h3>
     <b-menu-list>
       <b-menu-item
         icon="information-outline"

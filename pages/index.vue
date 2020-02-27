@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2 class="is-size-5 has-text-white-ter has-text-centered">Articles</h2>
+    <h2 class="subtitle">Articles</h2>
     <div
       v-for="(post, i) in posts"
       :key="i"
@@ -15,20 +15,28 @@
           />
         </figure>
       </div>
-      <div class="post-card-header">
-        <div class="post-card-header-title">
-          <nuxt-link :to="'posts/' + post.fields.slug">
-            <h2 class="is-size-4">{{ post.fields.title }}</h2>
-          </nuxt-link>
+      <div>
+        <div>
+          <h2 class="post-title">
+            <nuxt-link :to="'posts/' + post.fields.slug">
+              <span class="is-size-4">{{ post.fields.title }}</span>
+            </nuxt-link>
+          </h2>
         </div>
       </div>
-      <div class="post-card-content">
+      <div>
         <div class="content">
-          <p class="has-text-white-ter">
-            {{ post.fields.contents.content[0].content[0].value }}
-          </p>
+          <div
+            class="has-text-white-ter"
+            v-html="
+              truncate(
+                $md.render(post.fields.contents.content[0].content[0].value),
+                100
+              )
+            "
+          ></div>
           <time
-            ><small class="has-text-grey-lighter">{{
+            ><small class="has-text-grey">{{
               formatDate(post.sys.createdAt)
             }}</small></time
           >
@@ -63,14 +71,12 @@
 import { Component, Vue } from 'vue-property-decorator'
 import { createClient } from '~/plugins/contentful.js'
 import Slider from '~/components/Slider.vue'
-import Sidebar from '~/components/Sidebar.vue'
 
 const client = createClient()
 
 @Component({
   components: {
-    Slider,
-    Sidebar
+    Slider
   },
   async asyncData() {
     let posts: any[] = []
@@ -103,6 +109,10 @@ export default class IndexPage extends Vue {
     const dd = String(date.getDate()).padStart(2, '0')
     return `${yyyy}.${mm}.${dd}`
   }
+
+  truncate(str: string, len: number) {
+    return str.length <= len ? str : str.substr(0, len) + '...'
+  }
 }
 </script>
 <style lang="scss">
@@ -115,13 +125,7 @@ export default class IndexPage extends Vue {
   color: #35495e;
   letter-spacing: 1px;
 }
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
+
 .links {
   padding-top: 15px;
 }
@@ -134,11 +138,22 @@ export default class IndexPage extends Vue {
   border-radius: 10px;
 }
 
+.post-title {
+  padding: 12px 0;
+}
+
 @media screen and (max-width: 639px) {
   /*スマホ用のcssを記述*/
   .wrapper {
     padding: 20px 30px;
     margin: 0 auto;
+  }
+  .subtitle {
+    font-weight: 300;
+    font-size: 28px;
+    color: #526488;
+    word-spacing: 5px;
+    padding-bottom: 4px;
   }
 }
 
@@ -148,6 +163,13 @@ export default class IndexPage extends Vue {
     padding: 30px 40px;
     margin: 0 auto;
   }
+  .subtitle {
+    font-weight: 300;
+    font-size: 32px;
+    color: #526488;
+    word-spacing: 5px;
+    padding-bottom: 10px;
+  }
 }
 
 @media screen and (min-width: 1024px) {
@@ -155,6 +177,13 @@ export default class IndexPage extends Vue {
   .wrapper {
     padding: 30px 200px;
     margin: 0 auto;
+  }
+  .subtitle {
+    font-weight: 300;
+    font-size: 42px;
+    color: #526488;
+    word-spacing: 5px;
+    padding-bottom: 15px;
   }
 }
 </style>
