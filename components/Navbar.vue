@@ -2,10 +2,7 @@
   <b-navbar type="is-black navbar-container">
     <template slot="brand">
       <b-navbar-item tag="router-link" :to="{ path: '/' }">
-        <img
-          src="images/bloglogo.png"
-          alt="Lightweight UI components for Vue.js based on Bulma"
-        />
+        <img :src="blogLogo" alt="Shunta's Blog" />
       </b-navbar-item>
     </template>
     <template slot="start">
@@ -26,9 +23,12 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
+import blogLogo from 'static/images/bloglogo.png'
 
 @Component({})
-export default class Navbar extends Vue {}
+export default class Navbar extends Vue {
+  blogLogo = blogLogo
+}
 </script>
 
 <style lang="scss" scoped>
