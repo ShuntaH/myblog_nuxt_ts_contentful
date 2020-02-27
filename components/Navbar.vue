@@ -1,5 +1,9 @@
 <template>
-  <b-navbar type="is-black navbar-container">
+  <b-navbar
+    class="has-background-black navbar-container"
+    type="is-black"
+    fixed-top="true"
+  >
     <template slot="brand">
       <b-navbar-item tag="router-link" :to="{ path: '/' }">
         <img :src="blogLogo" alt="Shunta's Blog" />
@@ -7,15 +11,11 @@
     </template>
     <template slot="start">
       <b-navbar-item
-        class="has-text-grey-lighter has-text-weight-medium is-italic"
+        class="has-background-black has-text-grey-lighter has-text-weight-medium is-italic"
+        tag="router-link"
+        :to="{ path: '/about' }"
       >
         About
-      </b-navbar-item>
-      <b-navbar-item
-        href="#"
-        class="has-text-grey-lighter has-text-weight-medium is-italic"
-      >
-        Contact
       </b-navbar-item>
     </template>
   </b-navbar>
@@ -34,5 +34,6 @@ export default class Navbar extends Vue {
 <style lang="scss" scoped>
 .navbar-container {
   padding: 6px 2rem;
+  margin-bottom: 30px;
 }
 </style>
