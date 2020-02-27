@@ -71,6 +71,7 @@ export default class Slider extends Vue {
     height: 260px;
   }
   .bulma-carousel {
+    margin-top: 12px;
     margin-bottom: 40px;
   }
 }
@@ -80,6 +81,7 @@ export default class Slider extends Vue {
     height: 300px;
   }
   .bulma-carousel {
+    margin-top: 12px;
     margin-bottom: 60px;
   }
 }
@@ -89,6 +91,7 @@ export default class Slider extends Vue {
     height: 400px;
   }
   .bulma-carousel {
+    margin-top: 12px;
     margin-bottom: 100px;
   }
 }
