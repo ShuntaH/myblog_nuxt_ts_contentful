@@ -2,11 +2,11 @@
   <b-navbar
     class="has-background-black navbar-container"
     type="is-black"
-    fixed-top="true"
+    :fixed-top="fixedTop"
   >
     <template slot="brand">
       <b-navbar-item tag="router-link" :to="{ path: '/' }">
-        <img :src="blogLogo" alt="Shunta's Blog" />
+        <img src="../assets/images/bloglogo.png" alt="Shunta's Blog" />
       </b-navbar-item>
     </template>
     <template slot="start">
@@ -23,11 +23,9 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import blogLogo from 'static/images/bloglogo.png'
-
 @Component({})
 export default class Navbar extends Vue {
-  blogLogo = blogLogo
+  fixedTop: boolean = true
 }
 </script>
 
