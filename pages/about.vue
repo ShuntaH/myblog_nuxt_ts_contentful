@@ -2,7 +2,7 @@
   <article class="has-background-black-ter">
     <figure class="media-left">
       <div class="image is-128x128">
-        <img class="is-rounded" :src="profile" />
+        <img class="is-rounded" src="../assets/images/profile.jpg" />
       </div>
     </figure>
     <div class="media-content profile-passage">
@@ -23,11 +23,8 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import profile from '~/assets/profile.jpg'
 @Component
-export default class about extends Vue {
-  profile = profile
-}
+export default class about extends Vue {}
 </script>
 <style lang="scss" scoped>
 .profile-passage {
