@@ -28,12 +28,7 @@
         <div class="content">
           <div
             class="has-text-white-ter"
-            v-html="
-              truncate(
-                $md.render(post.fields.contents.content[0].content[0].value),
-                100
-              )
-            "
+            v-html="truncate(toHtmlString(post.fields.contents), 100)"
           ></div>
           <time
             ><small class="has-text-grey">{{
@@ -69,6 +64,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
+import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
 import { createClient } from '~/plugins/contentful.js'
 import Slider from '~/components/Slider.vue'
 
@@ -112,6 +108,10 @@ export default class IndexPage extends Vue {
 
   truncate(str: string, len: number) {
     return str.length <= len ? str : str.substr(0, len) + '...'
+  }
+
+  toHtmlString(obj: any) {
+    return documentToHtmlString(obj)
   }
 }
 </script>
