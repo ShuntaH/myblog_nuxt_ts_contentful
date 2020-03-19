@@ -26,9 +26,7 @@ export default class Slider extends Vue {
   carousels = [
     { title: 'Slide 1', img: 'carousel-img1' },
     { title: 'Slide 2', img: 'carousel-img2' },
-    { title: 'Slide 3', img: 'carousel-img3' },
-    { title: 'Slide 4', img: 'carousel-img4' },
-    { title: 'Slide 4', img: 'carousel-img5' }
+    { title: 'Slide 3', img: 'carousel-img3' }
   ]
 
   indicator = true
@@ -56,14 +54,6 @@ export default class Slider extends Vue {
 .carousel-img3 {
   @extend .carousel-img;
   background-image: url('~assets/slides/slide3.jpg');
-}
-.carousel-img4 {
-  @extend .carousel-img;
-  background-image: url('~assets/slides/slide4.jpg');
-}
-.carousel-img5 {
-  @extend .carousel-img;
-  background-image: url('~assets/slides/slide5.jpg');
 }
 @media screen and (max-width: 639px) {
   /*スマホ用のcssを記述*/

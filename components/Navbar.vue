@@ -6,12 +6,12 @@
   >
     <template slot="brand">
       <b-navbar-item tag="router-link" :to="{ path: '/' }">
-        <img src="../assets/images/bloglogo.png" alt="Shunta's Blog" />
+        <p class="blog-title has-text-weight-medium">Sararin Blog</p>
       </b-navbar-item>
     </template>
     <template slot="start">
       <b-navbar-item
-        class="has-background-black has-text-grey-lighter has-text-weight-medium is-italic"
+        class="blog-title has-text-weight-medium"
         tag="router-link"
         :to="{ path: '/about' }"
       >
@@ -30,6 +30,12 @@ export default class Navbar extends Vue {
 </script>
 
 <style lang="scss" scoped>
+.blog-title {
+  color: deeppink;
+  font-family: 'HanziPen SC', sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+}
 .navbar-container {
   padding: 6px 2rem;
   margin-bottom: 30px;
