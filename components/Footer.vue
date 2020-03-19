@@ -3,7 +3,7 @@
     <div class="container">
       <div class="content has-text-centered">
         <p>
-          <strong class="footer-title">Shunta's Blog</strong> by
+          <strong class="footer-title">Sararin Blog</strong> by
           <a href="https://github.com/ShuntaH">ShuntaH</a>
           <br />
           <small
