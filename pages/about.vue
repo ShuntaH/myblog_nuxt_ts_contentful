@@ -8,8 +8,8 @@
     <div class="media-content profile-passage">
       <div class="content">
         <p class="is-size-3 has-text-white-ter">
-          <strong>Shunta</strong>
-          <small class="has-text-white-ter">@Shunta</small>
+          <strong>Sararin</strong>
+          <small class="has-text-white-ter">@Sararin</small>
         </p>
         <p class="is-size-4 has-text-white-ter">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare

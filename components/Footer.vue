@@ -3,7 +3,10 @@
     <div class="container">
       <div class="content has-text-centered">
         <p>
-          <strong class="footer-title">Sararin Blog</strong> by
+          <nuxt-link to="/">
+            <strong class="footer-title">Sararin Blog</strong>
+          </nuxt-link>
+          by
           <a href="https://github.com/ShuntaH">ShuntaH</a>
           <br />
           <small
@@ -15,9 +18,7 @@
             | Theme by <strong><a href="https://buefy.org/">Buefy</a></strong>
           </small>
         </p>
-        <a class="icon is-large" href="/">
-          <img src="../assets/images/bloglogo.png" alt="Blog-logo" />
-        </a>
+        <p><small>© 2020 Sararin Blog.</small></p>
       </div>
     </div>
   </footer>
