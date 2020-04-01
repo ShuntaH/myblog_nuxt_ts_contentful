@@ -1,7 +1,6 @@
 <template>
   <div class="has-background-black-ter">
     <Navbar></Navbar>
-    <Slider></Slider>
     <div class="wrapper">
       <div class="columns">
         <div class="column is-two-thirds">
@@ -21,18 +20,15 @@ import { Component, Vue } from 'vue-property-decorator'
 import Navbar from '~/components/Navbar.vue'
 import Footer from '~/components/Footer.vue'
 import Sidebar from '~/components/Sidebar.vue'
-import Slider from '~/components/Slider.vue'
 @Component({
   components: {
     Sidebar,
-    Slider,
     Navbar,
     Footer
   }
 })
-export default class extends Vue {}
+export default class Article extends Vue {}
 </script>
-
 <style lang="scss">
 html {
   font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
@@ -93,7 +89,7 @@ html {
 @media only screen and (min-width: 640px) and (max-width: 1023px) {
   /*tablet用のcssを記述*/
   .wrapper {
-    padding: 60px 40px;
+    padding: 30px 40px;
     margin: 0 auto;
   }
 }
@@ -101,7 +97,7 @@ html {
 @media screen and (min-width: 1024px) {
   /*pc用のcssを記述*/
   .wrapper {
-    padding: 80px 200px;
+    padding: 60px 200px;
     margin: 0 auto;
   }
 }

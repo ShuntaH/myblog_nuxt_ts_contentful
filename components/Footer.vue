@@ -3,7 +3,10 @@
     <div class="container">
       <div class="content has-text-centered">
         <p>
-          <strong class="footer-title">Shunta's Blog</strong> by
+          <nuxt-link to="/">
+            <strong class="footer-title">Sararin Blog</strong>
+          </nuxt-link>
+          by
           <a href="https://github.com/ShuntaH">ShuntaH</a>
           <br />
           <small
@@ -15,17 +18,16 @@
             | Theme by <strong><a href="https://buefy.org/">Buefy</a></strong>
           </small>
         </p>
-        <a class="icon is-large" href="/">
-          <img src="images/bloglogo.png" alt="Blog-logo" />
-        </a>
+        <p><small>© 2020 Sararin Blog.</small></p>
       </div>
     </div>
   </footer>
 </template>
 
 <script lang="ts">
-import { Vue } from 'vue-property-decorator'
-export default class Footer extends Vue {}
+import { Component, Vue } from 'vue-property-decorator'
+@Component({})
+export default class Navbar extends Vue {}
 </script>
 
 <style lang="scss" scoped>

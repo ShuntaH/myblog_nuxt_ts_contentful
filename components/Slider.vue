@@ -11,7 +11,7 @@
     >
       <b-carousel-item v-for="(carousel, i) in carousels" :key="i">
         <section
-          :class="carousel.img"
+          :class="carousel.imgUrl"
           class="carousel-height is-fullwidth"
         ></section>
       </b-carousel-item>
@@ -23,13 +23,7 @@ import { Component, Vue } from 'vue-property-decorator'
 
 @Component
 export default class Slider extends Vue {
-  carousels = [
-    { title: 'Slide 1', img: 'carousel-img1' },
-    { title: 'Slide 2', img: 'carousel-img2' },
-    { title: 'Slide 3', img: 'carousel-img3' },
-    { title: 'Slide 4', img: 'carousel-img4' },
-    { title: 'Slide 4', img: 'carousel-img5' }
-  ]
+  carousels = [{ title: 'Slide 1', imgUrl: 'carousel-img1' }]
 
   indicator = true
   indicatorBackground = true
@@ -49,47 +43,36 @@ export default class Slider extends Vue {
   @extend .carousel-img;
   background-image: url('~assets/slides/slide1.jpg');
 }
-.carousel-img2 {
-  @extend .carousel-img;
-  background-image: url('~assets/slides/slide2.jpg');
-}
-.carousel-img3 {
-  @extend .carousel-img;
-  background-image: url('~assets/slides/slide3.jpg');
-}
-.carousel-img4 {
-  @extend .carousel-img;
-  background-image: url('~assets/slides/slide4.jpg');
-}
-.carousel-img5 {
-  @extend .carousel-img;
-  background-image: url('~assets/slides/slide5.jpg');
-}
+
+// responsive
 @media screen and (max-width: 639px) {
   /*スマホ用のcssを記述*/
+  .bulma-carousel {
+    margin-top: 12px;
+    margin-bottom: 40px;
+  }
   .carousel-height {
     height: 260px;
-  }
-  .bulma-carousel {
-    margin-bottom: 40px;
   }
 }
 @media only screen and (min-width: 640px) and (max-width: 1023px) {
   /*tablet用のcssを記述*/
+  .bulma-carousel {
+    margin-top: 12px;
+    margin-bottom: 60px;
+  }
   .carousel-height {
     height: 300px;
-  }
-  .bulma-carousel {
-    margin-bottom: 100px;
   }
 }
 @media screen and (min-width: 1024px) {
   /*pc用のcssを記述*/
+  .bulma-carousel {
+    margin-top: 12px;
+    margin-bottom: 100px;
+  }
   .carousel-height {
     height: 400px;
-  }
-  .bulma-carousel {
-    margin-bottom: 140px;
   }
 }
 </style>
