@@ -52,14 +52,14 @@ export default {
     typography: true
   },
   generate: {
+    fallback: true,
     routes() {
       const client: ContentfulClientApi = contentful.createClient({
         space: process.env.CTF_SPACE_ID,
         accessToken: process.env.CTF_ACCESS_TOKEN
       })
-
       return client
-        .getEntries({ content_type: 'post' })
+        .getEntries({ content_type: process.env.CTF_BLOG_POST_TYPE_ID })
         .then((entries: EntryCollection<any>) => {
           return entries.items.map((entry: Entry<any>) => {
             return {

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2 class="subtitle">Articles</h2>
+    <h2 class="subtitle"></h2>
     <div
       v-for="(post, i) in posts"
       :key="i"
@@ -10,32 +10,29 @@
         <figure class="image is-2by1">
           <img
             :src="post.fields.thumbnail.fields.file.url"
-            alt="Placeholder image"
+            :alt="post.fields.title"
             class="post-card-image"
           />
+          <b-tag class="post-card-category" rounded>
+            {{ post.fields.category.fields.name }}
+          </b-tag>
         </figure>
       </div>
-      <div>
-        <div>
-          <h2 class="post-title">
-            <nuxt-link :to="'posts/' + post.fields.slug">
-              <span class="is-size-4">{{ post.fields.title }}</span>
-            </nuxt-link>
-          </h2>
-        </div>
-      </div>
-      <div>
-        <div class="content">
-          <div
-            class="has-text-white-ter"
-            v-html="truncate(toHtmlString(post.fields.contents), 100)"
-          ></div>
-          <time
-            ><small class="has-text-grey">{{
-              formatDate(post.sys.createdAt)
-            }}</small></time
-          >
-        </div>
+      <h2 class="post-title">
+        <nuxt-link :to="'posts/' + post.fields.slug">
+          <span class="is-size-4">{{ post.fields.title }}</span>
+        </nuxt-link>
+      </h2>
+      <div class="content">
+        <div
+          class="has-text-white-ter"
+          v-html="truncate(toHtmlString(post.fields.content), 100)"
+        ></div>
+        <time
+          ><small class="has-text-grey">{{
+            formatDate(post.sys.createdAt)
+          }}</small></time
+        >
       </div>
     </div>
     <template>
@@ -78,7 +75,7 @@ const client = createClient()
     let posts: any[] = []
     await client
       .getEntries({
-        content_type: 'post',
+        content_type: process.env.CTF_BLOG_POST_TYPE_ID,
         order: '-sys.createdAt'
       })
       .then((res: { items: any[] }) => (posts = res.items))
@@ -136,6 +133,13 @@ export default class IndexPage extends Vue {
 }
 .post-card-image {
   border-radius: 10px;
+  position: relative;
+}
+
+.post-card-category {
+  position: absolute;
+  top: 20px;
+  left: 20px;
 }
 
 .post-title {

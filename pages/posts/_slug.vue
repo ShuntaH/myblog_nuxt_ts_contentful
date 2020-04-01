@@ -6,7 +6,7 @@
       </h1>
       <div
         class="has-text-white-ter article-content"
-        v-html="toHtmlString(post.fields.contents)"
+        v-html="toHtmlString(post.fields.content)"
       ></div>
       <p class="has-text-grey">{{ formatDate(post.sys.createdAt) }}</p>
     </div>
@@ -18,25 +18,23 @@ import { Component, Vue } from 'vue-property-decorator'
 import { BLOCKS } from '@contentful/rich-text-types'
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
 import { createClient } from '~/plugins/contentful.js'
-import Article from '~/layouts/article.vue'
 
 const client = createClient()
 
 @Component({
-  components: { Article },
+  layout: 'article',
   asyncData({ params, payload }) {
-    if (payload) return { post: payload }
+    if (payload) return { post: payload.entry }
     return client
       .getEntries({
-        content_type: 'post',
+        content_type: process.env.CTF_BLOG_POST_TYPE_ID,
         'fields.slug': params.slug
       })
       .then((entries: { items: any[] }) => {
         return { post: entries.items[0] }
       })
       .catch((e: string) => console.log(e))
-  },
-  layout: 'article'
+  }
 })
 export default class slug extends Vue {
   toHtmlString(obj: any) {
@@ -71,5 +69,6 @@ export default class slug extends Vue {
 }
 .article-content {
   padding-bottom: 100px;
+  line-height: 2;
 }
 </style>

@@ -17,6 +17,20 @@
       >
         About
       </b-navbar-item>
+      <b-navbar-item
+        class="blog-title has-text-weight-medium"
+        tag="router-link"
+        :to="{ path: '/about' }"
+      >
+        Contact
+      </b-navbar-item>
+      <b-navbar-dropdown label="Category" hoverable>
+        <b-navbar-item href="#">Beauty</b-navbar-item>
+        <b-navbar-item href="#">Travel</b-navbar-item>
+        <b-navbar-item href="#">Cafe shops</b-navbar-item>
+        <b-navbar-item href="#">Life in Kyoto</b-navbar-item>
+        <b-navbar-item href="#">Events</b-navbar-item>
+      </b-navbar-dropdown>
     </template>
   </b-navbar>
 </template>

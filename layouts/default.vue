@@ -32,6 +32,7 @@ import Slider from '~/components/Slider.vue'
 })
 export default class extends Vue {}
 </script>
+
 <style lang="scss">
 html {
   font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
@@ -92,7 +93,7 @@ html {
 @media only screen and (min-width: 640px) and (max-width: 1023px) {
   /*tablet用のcssを記述*/
   .wrapper {
-    padding: 30px 40px;
+    padding: 60px 40px;
     margin: 0 auto;
   }
 }
@@ -100,7 +101,7 @@ html {
 @media screen and (min-width: 1024px) {
   /*pc用のcssを記述*/
   .wrapper {
-    padding: 30px 200px;
+    padding: 80px 200px;
     margin: 0 auto;
   }
 }
