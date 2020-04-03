@@ -68,7 +68,7 @@ export default {
           }),
           ...categories.items.map((category: Entry<any>) => {
             return {
-              route: `/category/${category.fields.slug}`,
+              route: `/categories/${category.fields.slug}`,
               payload: category
             }
           })

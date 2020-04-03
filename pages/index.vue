@@ -71,7 +71,6 @@ import Slider from '~/components/Slider.vue'
   },
   computed: {
     ...mapState(['posts'])
-    // ...mapGetters(['setEyeCatch', 'draftChip', 'linkTo'])
   }
 })
 export default class IndexPage extends Vue {
