@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2 class="subtitle">Articles</h2>
+    <h2 class="subtitle"></h2>
     <div
       v-for="(post, i) in posts"
       :key="i"
@@ -10,32 +10,29 @@
         <figure class="image is-2by1">
           <img
             :src="post.fields.thumbnail.fields.file.url"
-            alt="Placeholder image"
+            :alt="post.fields.title"
             class="post-card-image"
           />
+          <b-tag class="post-card-category" rounded>
+            {{ post.fields.category.fields.name }}
+          </b-tag>
         </figure>
       </div>
-      <div>
-        <div>
-          <h2 class="post-title">
-            <nuxt-link :to="'posts/' + post.fields.slug">
-              <span class="is-size-4">{{ post.fields.title }}</span>
-            </nuxt-link>
-          </h2>
-        </div>
-      </div>
-      <div>
-        <div class="content">
-          <div
-            class="has-text-white-ter"
-            v-html="truncate(toHtmlString(post.fields.contents), 100)"
-          ></div>
-          <time
-            ><small class="has-text-grey">{{
-              formatDate(post.sys.createdAt)
-            }}</small></time
-          >
-        </div>
+      <h2 class="post-title">
+        <nuxt-link :to="'posts/' + post.fields.slug">
+          <span class="is-size-4">{{ post.fields.title }}</span>
+        </nuxt-link>
+      </h2>
+      <div class="content">
+        <div
+          class="has-text-white-ter"
+          v-html="truncate(toHtmlString(post.fields.content), 100)"
+        ></div>
+        <time
+          ><small class="has-text-grey">{{
+            formatDate(post.sys.createdAt)
+          }}</small></time
+        >
       </div>
     </div>
     <template>
@@ -65,25 +62,15 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
-import { createClient } from '~/plugins/contentful.js'
+import { mapState } from 'vuex'
 import Slider from '~/components/Slider.vue'
-
-const client = createClient()
 
 @Component({
   components: {
     Slider
   },
-  async asyncData() {
-    let posts: any[] = []
-    await client
-      .getEntries({
-        content_type: 'post',
-        order: '-sys.createdAt'
-      })
-      .then((res: { items: any[] }) => (posts = res.items))
-      .catch(console.error)
-    return { posts }
+  computed: {
+    ...mapState(['posts'])
   }
 })
 export default class IndexPage extends Vue {
@@ -98,7 +85,7 @@ export default class IndexPage extends Vue {
   prevIcon = 'chevron-left'
   nextIcon = 'chevron-right'
 
-  formatDate(iso: string | number | Date) {
+  public formatDate(iso: string | number | Date) {
     const date = new Date(iso)
     const yyyy = String(date.getFullYear())
     const mm = String(date.getMonth() + 1).padStart(2, '0')
@@ -106,11 +93,11 @@ export default class IndexPage extends Vue {
     return `${yyyy}.${mm}.${dd}`
   }
 
-  truncate(str: string, len: number) {
+  public truncate(str: string, len: number) {
     return str.length <= len ? str : str.substr(0, len) + '...'
   }
 
-  toHtmlString(obj: any) {
+  public toHtmlString(obj: any) {
     return documentToHtmlString(obj)
   }
 }
@@ -136,6 +123,13 @@ export default class IndexPage extends Vue {
 }
 .post-card-image {
   border-radius: 10px;
+  position: relative;
+}
+
+.post-card-category {
+  position: absolute;
+  top: 20px;
+  left: 20px;
 }
 
 .post-title {

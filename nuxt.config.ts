@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/named,@typescript-eslint/no-unused-vars
-import { ContentfulClientApi, Entry, EntryCollection } from 'contentful'
+import { ContentfulClientApi, Entry } from 'contentful'
 const contentful = require('contentful')
 require('dotenv').config()
 
@@ -52,27 +52,36 @@ export default {
     typography: true
   },
   generate: {
+    fallback: true,
     routes() {
       const client: ContentfulClientApi = contentful.createClient({
         space: process.env.CTF_SPACE_ID,
         accessToken: process.env.CTF_ACCESS_TOKEN
       })
-
-      return client
-        .getEntries({ content_type: 'post' })
-        .then((entries: EntryCollection<any>) => {
-          return entries.items.map((entry: Entry<any>) => {
+      return Promise.all([
+        client.getEntries({ content_type: process.env.CTF_BLOG_POST_TYPE_ID }),
+        client.getEntries({ content_type: 'category' })
+      ]).then(([posts, categories]) => {
+        return [
+          ...posts.items.map((post: Entry<any>) => {
+            return { route: `/posts/${post.fields.slug}`, payload: post }
+          }),
+          ...categories.items.map((category: Entry<any>) => {
             return {
-              route: '/posts/' + entry.fields.slug,
-              payload: entry
+              route: `/categories/${category.fields.slug}`,
+              payload: category
             }
           })
-        })
+        ]
+      })
     }
   },
   env: {
     CTF_SPACE_ID: process.env.CTF_SPACE_ID,
     CTF_ACCESS_TOKEN: process.env.CTF_ACCESS_TOKEN
+  },
+  router: {
+    middleware: ['getContentful']
   },
   /*
    ** Build configuration
