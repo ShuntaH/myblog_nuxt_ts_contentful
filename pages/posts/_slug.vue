@@ -2,13 +2,14 @@
   <article class="article">
     <div class="single has-background-black-ter">
       <h1 class="is-size-3 has-text-white-ter article-title">
-        {{ post.fields.title }}
+        {{ currentPost.fields.title }}
       </h1>
       <div
         class="has-text-white-ter article-content"
-        v-html="toHtmlString(post.fields.content)"
+        v-html="toHtmlString(currentPost.fields.content)"
       ></div>
-      <p class="has-text-grey">{{ formatDate(post.sys.createdAt) }}</p>
+      <p class="has-text-grey">{{ formatDate(currentPost.sys.createdAt) }}</p>
+      <p class="has-text-grey">{{ currentPost.fields.category.fields.name }}</p>
     </div>
   </article>
 </template>
@@ -17,23 +18,21 @@
 import { Component, Vue } from 'vue-property-decorator'
 import { BLOCKS } from '@contentful/rich-text-types'
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
-import { createClient } from '~/plugins/contentful.js'
-
-const client = createClient()
 
 @Component({
   layout: 'article',
-  asyncData({ params, payload }) {
-    if (payload) return { post: payload.entry }
-    return client
-      .getEntries({
-        content_type: process.env.CTF_BLOG_POST_TYPE_ID,
-        'fields.slug': params.slug
-      })
-      .then((entries: { items: any[] }) => {
-        return { post: entries.items[0] }
-      })
-      .catch((e: string) => console.log(e))
+  async asyncData({ payload, store, params, error }) {
+    const currentPost =
+      payload ||
+      (await store.state.posts.find(
+        (post: { fields: { slug: string } }) => post.fields.slug === params.slug
+      ))
+
+    if (currentPost) {
+      return { currentPost }
+    } else {
+      return error({ statusCode: 400 })
+    }
   }
 })
 export default class slug extends Vue {

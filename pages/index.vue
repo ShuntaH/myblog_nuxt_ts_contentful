@@ -62,25 +62,15 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
-import { createClient } from '~/plugins/contentful.js'
+import { mapState } from 'vuex'
 import Slider from '~/components/Slider.vue'
-
-const client = createClient()
 
 @Component({
   components: {
     Slider
   },
-  async asyncData() {
-    let posts: any[] = []
-    await client
-      .getEntries({
-        content_type: process.env.CTF_BLOG_POST_TYPE_ID,
-        order: '-sys.createdAt'
-      })
-      .then((res: { items: any[] }) => (posts = res.items))
-      .catch(console.error)
-    return { posts }
+  computed: {
+    ...mapState(['posts'])
   }
 })
 export default class IndexPage extends Vue {
@@ -95,7 +85,7 @@ export default class IndexPage extends Vue {
   prevIcon = 'chevron-left'
   nextIcon = 'chevron-right'
 
-  formatDate(iso: string | number | Date) {
+  public formatDate(iso: string | number | Date) {
     const date = new Date(iso)
     const yyyy = String(date.getFullYear())
     const mm = String(date.getMonth() + 1).padStart(2, '0')
@@ -103,11 +93,11 @@ export default class IndexPage extends Vue {
     return `${yyyy}.${mm}.${dd}`
   }
 
-  truncate(str: string, len: number) {
+  public truncate(str: string, len: number) {
     return str.length <= len ? str : str.substr(0, len) + '...'
   }
 
-  toHtmlString(obj: any) {
+  public toHtmlString(obj: any) {
     return documentToHtmlString(obj)
   }
 }
