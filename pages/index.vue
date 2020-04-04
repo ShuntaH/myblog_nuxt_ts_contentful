@@ -28,7 +28,7 @@
       <div class="content">
         <div
           class="has-text-dark"
-          v-html="truncate(toHtmlString(post.fields.content), 300)"
+          v-html="truncate(toHtmlString(post.fields.content), 250)"
         ></div>
         <time
           ><small class="has-text-grey">{{

@@ -19,7 +19,7 @@
         </figure>
       </div>
       <h2 class="post-title">
-        <nuxt-link :to="'posts/' + post.fields.slug">
+        <nuxt-link :to="`/posts/${post.fields.slug}`">
           <span class="is-size-4">{{ post.fields.title }}</span>
         </nuxt-link>
       </h2>
