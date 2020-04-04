@@ -25,7 +25,7 @@ import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
     const currentPost =
       payload ||
       (await store.state.posts.find(
-        (post: { fields: { slug: string } }) => post.fields.slug === params.slug
+        (post: { fields: any }) => post.fields.slug === params.slug
       ))
 
     if (currentPost) {
