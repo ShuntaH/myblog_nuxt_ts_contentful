@@ -65,12 +65,9 @@
 import { Component, Vue } from 'vue-property-decorator'
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
 import { mapState } from 'vuex'
-import Slider from '~/components/Slider.vue'
 
 @Component({
-  components: {
-    Slider
-  },
+  components: {},
   computed: {
     ...mapState(['posts'])
   }
