@@ -4,7 +4,7 @@
     <div
       v-for="(post, i) in relatedPosts(category.fields.name)"
       :key="i"
-      class="post-card has-background-black-ter"
+      class="post-card has-background-white-bis"
     >
       <div v-if="post.fields.thumbnail">
         <figure class="image is-2by1">
@@ -25,7 +25,7 @@
       </h2>
       <div class="content">
         <div
-          class="has-text-white-ter"
+          class="has-text-dark"
           v-html="truncate(toHtmlString(post.fields.content), 100)"
         ></div>
         <time
@@ -62,7 +62,7 @@ import { mapGetters } from 'vuex'
     ...mapGetters(['relatedPosts'])
   }
 })
-export default class category extends Vue {
+export default class Category extends Vue {
   public formatDate(iso: string | number | Date) {
     const date = new Date(iso)
     const yyyy = String(date.getFullYear())

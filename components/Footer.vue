@@ -4,7 +4,7 @@
       <div class="content has-text-centered">
         <p>
           <nuxt-link to="/">
-            <strong class="footer-title">Sararin Blog</strong>
+            <strong class="footer-title">Rin is fine</strong>
           </nuxt-link>
           by
           <a href="https://github.com/ShuntaH">ShuntaH</a>
@@ -18,7 +18,7 @@
             | Theme by <strong><a href="https://buefy.org/">Buefy</a></strong>
           </small>
         </p>
-        <p><small>© 2020 Sararin Blog.</small></p>
+        <p><small>© 2020 Rin is fine.</small></p>
       </div>
     </div>
   </footer>
