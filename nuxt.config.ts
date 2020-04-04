@@ -83,12 +83,12 @@ export default {
         client.getEntries({ content_type: 'category' })
       ]).then(([posts, categories]) => {
         return [
-          ...posts.items.map((post: Entry<any>) => {
-            return { route: `/posts/${post.fields.slug}`, payload: post }
+          ...posts.items.map((post: any) => {
+            return { route: `posts/${post.fields.slug}`, payload: post }
           }),
-          ...categories.items.map((category: Entry<any>) => {
+          ...categories.items.map((category: any) => {
             return {
-              route: `/categories/${category.fields.slug}`,
+              route: `categories/${category.fields.slug}`,
               payload: category
             }
           })
