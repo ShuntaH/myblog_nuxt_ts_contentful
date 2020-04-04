@@ -1,18 +1,7 @@
 <template>
   <div class="has-background-white-bis">
     <Navbar></Navbar>
-    <section class="hero has-background-white-ter has-text-centered">
-      <div class="hero-body  hero-wrapper">
-        <div class="container">
-          <h1 class="title">
-            Rin is fine
-          </h1>
-          <h2 class="subtitle">
-            Travel with me & aesthetic thing
-          </h2>
-        </div>
-      </div>
-    </section>
+    <Hero></Hero>
     <div class="main-wrapper">
       <div class="columns">
         <div class="column is-two-thirds">
@@ -30,6 +19,7 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import Navbar from '~/components/Navbar.vue'
+import Hero from '~/components/Hero.vue'
 import Footer from '~/components/Footer.vue'
 import Sidebar from '~/components/Sidebar.vue'
 import Slider from '~/components/Slider.vue'
@@ -38,7 +28,8 @@ import Slider from '~/components/Slider.vue'
     Sidebar,
     Slider,
     Navbar,
-    Footer
+    Footer,
+    Hero
   }
 })
 export default class extends Vue {}

@@ -5,6 +5,15 @@
     has-text-centered
     :fixed-top="fixedTop"
   >
+    <template slot="brand">
+      <b-navbar-item
+        class="is-hidden-desktop"
+        tag="router-link"
+        :to="{ path: '/' }"
+      >
+        Rin is fine
+      </b-navbar-item>
+    </template>
     <template slot="start">
       <b-navbar-item
         class="has-text-weight-medium"

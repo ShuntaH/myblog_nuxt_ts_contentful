@@ -34,7 +34,7 @@ import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
     }
   }
 })
-export default class slug extends Vue {
+export default class Slug extends Vue {
   toHtmlString(obj: any) {
     const options: object = {
       renderNode: {

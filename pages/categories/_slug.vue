@@ -61,7 +61,7 @@ import { mapGetters } from 'vuex'
     ...mapGetters(['relatedPosts'])
   }
 })
-export default class category extends Vue {
+export default class Category extends Vue {
   public formatDate(iso: string | number | Date) {
     const date = new Date(iso)
     const yyyy = String(date.getFullYear())
