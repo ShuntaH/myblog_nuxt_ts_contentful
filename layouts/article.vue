@@ -1,7 +1,8 @@
 <template>
-  <div class="has-background-black-ter">
+  <div class="has-background-white-bis">
     <Navbar></Navbar>
-    <div class="wrapper">
+    <Hero></Hero>
+    <div class="main-wrapper">
       <div class="columns">
         <div class="column is-two-thirds">
           <nuxt />
@@ -18,17 +19,21 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import Navbar from '~/components/Navbar.vue'
+import Hero from '~/components/Hero.vue'
 import Footer from '~/components/Footer.vue'
 import Sidebar from '~/components/Sidebar.vue'
+
 @Component({
   components: {
     Sidebar,
     Navbar,
-    Footer
+    Footer,
+    Hero
   }
 })
-export default class Article extends Vue {}
+export default class extends Vue {}
 </script>
+
 <style lang="scss">
 html {
   font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
@@ -78,9 +83,13 @@ html {
   background-color: #35495e;
 }
 
+.hero-wrapper {
+  margin-top: 0;
+}
+
 @media screen and (max-width: 639px) {
   /*スマホ用のcssを記述*/
-  .wrapper {
+  .main-wrapper {
     padding: 20px 30px;
     margin: 0 auto;
   }
@@ -88,16 +97,16 @@ html {
 
 @media only screen and (min-width: 640px) and (max-width: 1023px) {
   /*tablet用のcssを記述*/
-  .wrapper {
-    padding: 30px 40px;
+  .main-wrapper {
+    padding: 60px 40px;
     margin: 0 auto;
   }
 }
 
 @media screen and (min-width: 1024px) {
   /*pc用のcssを記述*/
-  .wrapper {
-    padding: 60px 200px;
+  .main-wrapper {
+    padding: 80px 200px;
     margin: 0 auto;
   }
 }
