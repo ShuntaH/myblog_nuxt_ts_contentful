@@ -1,11 +1,11 @@
 <template>
   <article class="article">
-    <div class="single has-background-black-ter">
-      <h1 class="is-size-3 has-text-white-ter article-title">
+    <div class="single has-background-white-bis">
+      <h1 class="is-size-3 has-text-dark article-title">
         {{ currentPost.fields.title }}
       </h1>
       <div
-        class="has-text-white-ter article-content"
+        class="has-text-dark article-content"
         v-html="toHtmlString(currentPost.fields.content)"
       ></div>
       <p class="has-text-grey">{{ formatDate(currentPost.sys.createdAt) }}</p>
@@ -20,7 +20,6 @@ import { BLOCKS } from '@contentful/rich-text-types'
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
 
 @Component({
-  layout: 'article',
   async asyncData({ payload, store, params, error }) {
     const currentPost =
       payload ||

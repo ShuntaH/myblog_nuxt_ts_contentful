@@ -4,9 +4,9 @@
     <div
       v-for="(post, i) in posts"
       :key="i"
-      class="post-card has-background-black-ter"
+      class="post-card has-background-white-bis"
     >
-      <div v-if="post.fields.thumbnail">
+      <div v-if="post.fields.thumbnail.file">
         <figure class="image is-2by1">
           <img
             :src="post.fields.thumbnail.fields.file.url"
@@ -19,14 +19,14 @@
         </figure>
       </div>
       <h2 class="post-title">
-        <nuxt-link :to="'posts/' + post.fields.slug">
+        <nuxt-link :to="`posts/${post.fields.slug}`">
           <span class="is-size-4">{{ post.fields.title }}</span>
         </nuxt-link>
       </h2>
       <div class="content">
         <div
-          class="has-text-white-ter"
-          v-html="truncate(toHtmlString(post.fields.content), 100)"
+          class="has-text-dark"
+          v-html="truncate(toHtmlString(post.fields.content), 300)"
         ></div>
         <time
           ><small class="has-text-grey">{{

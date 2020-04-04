@@ -44,7 +44,24 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: ['nuxt-buefy', '@nuxtjs/dotenv', '@nuxtjs/markdownit'],
+  modules: [
+    'nuxt-buefy',
+    '@nuxtjs/dotenv',
+    '@nuxtjs/markdownit',
+    'nuxt-fontawesome'
+  ],
+  /*
+   ** FontAwesome
+   */
+  fontawesome: {
+    imports: [
+      { set: '@fortawesome/free-solid-svg-icons', icons: ['fas'] },
+      {
+        set: '@fortawesome/free-brands-svg-icons',
+        icons: ['fab']
+      }
+    ]
+  },
   markdownit: {
     injected: true,
     html: true,

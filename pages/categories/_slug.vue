@@ -44,7 +44,6 @@ import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
 import { mapGetters } from 'vuex'
 
 @Component({
-  layout: 'article',
   async asyncData({ payload, store, params, error }) {
     const category =
       payload ||

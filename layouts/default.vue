@@ -1,8 +1,19 @@
 <template>
-  <div class="has-background-black-ter">
+  <div class="has-background-white-bis">
     <Navbar></Navbar>
-    <Slider></Slider>
-    <div class="wrapper">
+    <section class="hero has-background-white-ter has-text-centered">
+      <div class="hero-body  hero-wrapper">
+        <div class="container">
+          <h1 class="title">
+            Rin is fine
+          </h1>
+          <h2 class="subtitle">
+            Travel with me & aesthetic thing
+          </h2>
+        </div>
+      </div>
+    </section>
+    <div class="main-wrapper">
       <div class="columns">
         <div class="column is-two-thirds">
           <nuxt />
@@ -82,9 +93,13 @@ html {
   background-color: #35495e;
 }
 
+.hero-wrapper {
+  margin-top: 0;
+}
+
 @media screen and (max-width: 639px) {
   /*スマホ用のcssを記述*/
-  .wrapper {
+  .main-wrapper {
     padding: 20px 30px;
     margin: 0 auto;
   }
@@ -92,7 +107,7 @@ html {
 
 @media only screen and (min-width: 640px) and (max-width: 1023px) {
   /*tablet用のcssを記述*/
-  .wrapper {
+  .main-wrapper {
     padding: 60px 40px;
     margin: 0 auto;
   }
@@ -100,7 +115,7 @@ html {
 
 @media screen and (min-width: 1024px) {
   /*pc用のcssを記述*/
-  .wrapper {
+  .main-wrapper {
     padding: 80px 200px;
     margin: 0 auto;
   }
