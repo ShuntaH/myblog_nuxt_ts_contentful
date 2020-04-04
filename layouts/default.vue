@@ -2,6 +2,7 @@
   <div class="has-background-white-bis">
     <Navbar></Navbar>
     <Hero></Hero>
+    <Slider></Slider>
     <div class="main-wrapper">
       <div class="columns">
         <div class="column is-two-thirds">

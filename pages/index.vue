@@ -6,7 +6,7 @@
       :key="i"
       class="post-card has-background-white-bis"
     >
-      <div v-if="post.fields.thumbnail.file">
+      <div v-if="post.fields.thumbnail">
         <figure class="image is-2by1">
           <img
             :src="post.fields.thumbnail.fields.file.url"
@@ -19,7 +19,9 @@
         </figure>
       </div>
       <h2 class="post-title">
-        <nuxt-link :to="`posts/${post.fields.slug}`">
+        <nuxt-link
+          :to="{ name: 'posts-slug', params: { slug: post.fields.slug } }"
+        >
           <span class="is-size-4">{{ post.fields.title }}</span>
         </nuxt-link>
       </h2>

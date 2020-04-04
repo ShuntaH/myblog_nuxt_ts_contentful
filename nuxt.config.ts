@@ -32,7 +32,10 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['~/plugins/contentful'],
+  plugins: [
+    '~/plugins/contentful',
+    { src: '~/plugins/vue-carousel', ssr: false }
+  ],
   /*
    ** Nuxt.js dev-modules
    */

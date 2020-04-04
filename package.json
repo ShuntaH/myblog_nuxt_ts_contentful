@@ -28,7 +28,8 @@
     "nuxt-buefy": "^0.3.23",
     "nuxt-fontawesome": "^0.4.0",
     "sass-loader": "^8.0.2",
-    "vue": "latest"
+    "vue": "latest",
+    "vue-carousel": "^0.18.0"
   },
   "devDependencies": {
     "@nuxt/typescript-build": "^0.5.7",
