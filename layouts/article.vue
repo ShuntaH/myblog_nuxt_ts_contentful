@@ -4,11 +4,12 @@
     <Hero></Hero>
     <div class="main-wrapper">
       <div class="columns">
-        <div class="column is-two-thirds">
+        <div class="column is-7">
           <nuxt />
         </div>
-        <div class="column is-one-thirds">
-          <Sidebar></Sidebar>
+        <div class="column is-4 is-offset-1">
+          <Author class="sidebar-distance"></Author>
+          <Category class="sidebar-distance"></Category>
         </div>
       </div>
     </div>
@@ -21,11 +22,13 @@ import { Component, Vue } from 'vue-property-decorator'
 import Navbar from '~/components/Navbar.vue'
 import Hero from '~/components/Hero.vue'
 import Footer from '~/components/Footer.vue'
-import Sidebar from '~/components/Sidebar.vue'
+import Category from '~/components/Category.vue'
+import Author from '~/components/Author.vue'
 
 @Component({
   components: {
-    Sidebar,
+    Category,
+    Author,
     Navbar,
     Footer,
     Hero
@@ -85,6 +88,10 @@ html {
 
 .hero-wrapper {
   margin-top: 0;
+}
+
+.sidebar-distance {
+  margin-bottom: 60px;
 }
 
 @media screen and (max-width: 639px) {

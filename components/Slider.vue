@@ -62,6 +62,7 @@ export default class Slider extends Vue {}
 }
 .carousel-wrapper {
   position: relative;
+  opacity: 0.85;
 }
 .carousel-text {
   position: absolute;
@@ -72,19 +73,19 @@ export default class Slider extends Vue {}
 @media screen and (max-width: 639px) {
   /*スマホ用のcssを記述*/
   .carousel-img {
-    height: 260px;
+    height: 200px;
   }
 }
 @media only screen and (min-width: 640px) and (max-width: 1023px) {
   /*tablet用のcssを記述*/
   .carousel-img {
-    height: 300px;
+    height: 260px;
   }
 }
 @media screen and (min-width: 1024px) {
   /*pc用のcssを記述*/
   .carousel-img {
-    height: 400px;
+    height: 360px;
   }
 }
 </style>
