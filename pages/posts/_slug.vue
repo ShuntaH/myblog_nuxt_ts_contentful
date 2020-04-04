@@ -20,6 +20,7 @@ import { BLOCKS } from '@contentful/rich-text-types'
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
 
 @Component({
+  layout: 'article',
   async asyncData({ payload, store, params, error }) {
     const currentPost =
       payload ||

@@ -1,8 +1,13 @@
 <template>
   <carousel
-    :per-page="3"
     :autoplay="true"
     :loop="true"
+    :perPageCustom="[
+      [1, 1],
+      [639, 3],
+      [1024, 3]
+    ]"
+    :pagination-enabled="true"
     :pagination-padding="5"
     :autoplay-timeout="4000"
     :autoplay-hover-pause="true"
@@ -47,6 +52,14 @@ export default class Slider extends Vue {}
 </script>
 
 <style lang="scss" scoped>
+.VueCarousel-slide {
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid #fff;
+  box-sizing: border-box;
+}
 .carousel-wrapper {
   position: relative;
 }

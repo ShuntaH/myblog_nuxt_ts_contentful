@@ -4,7 +4,7 @@
     <div
       v-for="(post, i) in relatedPosts(category.fields.name)"
       :key="i"
-      class="post-card has-background-black-ter"
+      class="post-card has-background-white-bis"
     >
       <div v-if="post.fields.thumbnail">
         <figure class="image is-2by1">
@@ -25,7 +25,7 @@
       </h2>
       <div class="content">
         <div
-          class="has-text-white-ter"
+          class="has-text-dark"
           v-html="truncate(toHtmlString(post.fields.content), 100)"
         ></div>
         <time
@@ -44,6 +44,7 @@ import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
 import { mapGetters } from 'vuex'
 
 @Component({
+  layout: 'article',
   async asyncData({ payload, store, params, error }) {
     const category =
       payload ||
