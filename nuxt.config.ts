@@ -81,6 +81,7 @@ export default {
         client.getEntries({ content_type: process.env.CTF_BLOG_POST_TYPE_ID }),
         client.getEntries({ content_type: 'category' })
       ]).then(([posts, categories]) => {
+        console.log(posts)
         return [
           ...posts.items.map((post: Entry<any>) => {
             return { route: `/posts/${post.fields.slug}`, payload: post }
