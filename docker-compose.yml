@@ -1,0 +1,11 @@
+version: '3'
+services:
+  web:
+    build: .
+    container_name: myblog
+    ports:
+      - 3002:3000
+    volumes:
+      - .:/app
+    stdin_open: true
+    tty: true
