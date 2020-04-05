@@ -93,7 +93,7 @@ html {
 }
 
 .sidebar-distance {
-  margin-bottom: 60px;
+  margin-bottom: 70px;
 }
 
 @media screen and (max-width: 639px) {
