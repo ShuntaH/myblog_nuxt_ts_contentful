@@ -1,45 +1,50 @@
 <template>
   <div>
-    <h2 class="subtitle"></h2>
     <div
       v-for="(post, i) in posts"
       :key="i"
-      class="post-card has-background-white-bis"
+      class="post-card has-background-white-ter"
     >
       <div v-if="post.fields.thumbnail">
-        <figure class="image is-2by1">
-          <img
-            :src="post.fields.thumbnail.fields.file.url"
-            :alt="post.fields.title"
-            class="post-card-image"
-          />
-          <b-tag class="post-card-category" rounded>
-            {{ post.fields.category.fields.name }}
-          </b-tag>
-        </figure>
-      </div>
-      <h2 class="post-title">
         <nuxt-link
           :to="{ name: 'posts-slug', params: { slug: post.fields.slug } }"
         >
-          <span class="is-size-4">{{ post.fields.title }}</span>
+          <figure class="image is-5by3">
+            <img
+              :src="post.fields.thumbnail.fields.file.url"
+              :alt="post.fields.title"
+              class="post-card-image"
+            />
+            <b-tag class="post-card-category" rounded>
+              {{ post.fields.category.fields.name }}
+            </b-tag>
+          </figure>
+        </nuxt-link>
+      </div>
+      <h2 class="is-size-4 has-text-centered post-title">
+        <nuxt-link
+          :to="{ name: 'posts-slug', params: { slug: post.fields.slug } }"
+        >
+          {{ post.fields.title }}
         </nuxt-link>
       </h2>
-      <div class="content">
-        <div
-          class="has-text-dark"
-          v-html="truncate(toHtmlString(post.fields.content), 250)"
-        ></div>
-        <time
-          ><small class="has-text-grey">{{
-            formatDate(post.sys.createdAt)
-          }}</small></time
-        >
+      <div class="has-text-centered content">
+        <time>
+          <small class="has-text-grey">
+            {{ formatDate(post.sys.createdAt) }}
+          </small>
+        </time>
+        <p>
+          <nuxt-link
+            class="is-size-6"
+            :to="{ name: 'posts-slug', params: { slug: post.fields.slug } }"
+          >
+            READ MORE
+          </nuxt-link>
+        </p>
       </div>
     </div>
-    <template>
-      <section class="wrapper"></section>
-    </template>
+    <section class="pagination-wrapper"></section>
   </div>
 </template>
 
@@ -87,13 +92,17 @@ export default class IndexPage extends Vue {
   padding-top: 15px;
 }
 .post-card {
-  margin-bottom: 60px;
+  padding-bottom: 30px;
+  margin-bottom: 30px;
   border-radius: 10px;
   border: none;
 }
 .post-card-image {
   border-radius: 10px;
   position: relative;
+  &:hover {
+    opacity: 0.9;
+  }
 }
 
 .post-card-category {
@@ -108,46 +117,25 @@ export default class IndexPage extends Vue {
 
 @media screen and (max-width: 639px) {
   /*スマホ用のcssを記述*/
-  .wrapper {
+  .pagination-wrapper {
     padding: 20px 30px;
     margin: 0 auto;
-  }
-  .subtitle {
-    font-weight: 300;
-    font-size: 28px;
-    color: #526488;
-    word-spacing: 5px;
-    padding-bottom: 4px;
   }
 }
 
 @media only screen and (min-width: 640px) and (max-width: 1023px) {
   /*tablet用のcssを記述*/
-  .wrapper {
+  .pagination-wrapper {
     padding: 30px 40px;
     margin: 0 auto;
-  }
-  .subtitle {
-    font-weight: 300;
-    font-size: 32px;
-    color: #526488;
-    word-spacing: 5px;
-    padding-bottom: 10px;
   }
 }
 
 @media screen and (min-width: 1024px) {
   /*pc用のcssを記述*/
-  .wrapper {
+  .pagination-wrapper {
     padding: 30px 200px;
     margin: 0 auto;
-  }
-  .subtitle {
-    font-weight: 300;
-    font-size: 42px;
-    color: #526488;
-    word-spacing: 5px;
-    padding-bottom: 15px;
   }
 }
 </style>

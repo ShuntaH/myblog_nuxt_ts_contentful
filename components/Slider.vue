@@ -64,6 +64,9 @@ export default class Slider extends Vue {}
 .carousel-wrapper {
   position: relative;
   opacity: 0.8;
+  &:hover {
+    opacity: 0.9;
+  }
 }
 .carousel-text {
   position: absolute;
