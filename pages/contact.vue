@@ -5,12 +5,7 @@
     </h1>
     <div class="has-text-dark article-content">
       <section>
-        <form
-          name="contact"
-          method="POST"
-          data-netlify="true"
-          data-netlify-recaptcha="true"
-        >
+        <form name="contact" method="POST" data-netlify="true">
           <input type="hidden" name="form-name" value="contact" />
           <b-field label="Name">
             <b-input type="text" name="name"></b-input>
@@ -24,10 +19,9 @@
           <b-field label="Message">
             <b-input maxlength="400" type="textarea" name="message"></b-input>
           </b-field>
-          <div data-netlify-recaptcha="true"></div>
           <b-field>
             <p class="control">
-              <button type="submit" class="button is-primary">
+              <button type="submit" class="button">
                 Send message
               </button>
             </p>
