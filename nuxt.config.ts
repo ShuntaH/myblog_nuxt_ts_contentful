@@ -9,14 +9,16 @@ export default {
    ** Headers of the page
    */
   head: {
-    title: "Sararin's Blog",
+    title: 'Travel with me & aesthetic thing',
+    titleTemplate: 'Rin is fine | %s',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {
         hid: 'description',
         name: 'description',
-        content: process.env.npm_package_description || ''
+        content:
+          'บล็อกรีวิว สถานที่ท่องเที่ยว ร้านคาเฟ่ ภาษาญี่ปุ่น ศิลปะกับกล้องฟิลม์ ฟังเพลงสากล สุขภาพและความงามโดยมนุษย์ Introvert ที่เรียนจบแพทย์'
       }
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
@@ -51,7 +53,8 @@ export default {
     'nuxt-buefy',
     '@nuxtjs/dotenv',
     '@nuxtjs/markdownit',
-    'nuxt-fontawesome'
+    'nuxt-fontawesome',
+    '@nuxtjs/sitemap'
   ],
   /*
    ** FontAwesome
@@ -115,5 +118,11 @@ export default {
   typescript: {
     typeCheck: true,
     ignoreNotFoundWarnings: true
+  },
+  sitemap: {
+    path: '/sitemap.xml',
+    hostname: 'https://moemoerinrin.netlify.com/',
+    cacheTime: 12 * 3600,
+    generate: true
   }
 }
