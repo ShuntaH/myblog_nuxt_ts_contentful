@@ -15,6 +15,7 @@
   >
     <slide v-for="(post, i) in posts" :key="i" class="carousel-wrapper">
       <nuxt-link
+        class="carousel-img"
         :to="{ name: 'posts-slug', params: { slug: post.fields.slug } }"
       >
         <img
@@ -62,7 +63,7 @@ export default class Slider extends Vue {}
 }
 .carousel-wrapper {
   position: relative;
-  opacity: 0.85;
+  opacity: 0.8;
 }
 .carousel-text {
   position: absolute;
@@ -74,18 +75,21 @@ export default class Slider extends Vue {}
   /*スマホ用のcssを記述*/
   .carousel-img {
     height: 200px;
+    width: 100%;
   }
 }
 @media only screen and (min-width: 640px) and (max-width: 1023px) {
   /*tablet用のcssを記述*/
   .carousel-img {
     height: 260px;
+    width: 100%;
   }
 }
 @media screen and (min-width: 1024px) {
   /*pc用のcssを記述*/
   .carousel-img {
     height: 360px;
+    width: 100%;
   }
 }
 </style>
