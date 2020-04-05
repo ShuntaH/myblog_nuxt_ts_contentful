@@ -38,25 +38,7 @@
       </div>
     </div>
     <template>
-      <section class="wrapper">
-        <b-pagination
-          :current.sync="current"
-          :range-before="rangeBefore"
-          :range-after="rangeAfter"
-          :order="order"
-          :size="size"
-          :simple="isSimple"
-          :rounded="isRounded"
-          :per-page="perPage"
-          :icon-prev="prevIcon"
-          :icon-next="nextIcon"
-          aria-next-label="Next page"
-          aria-previous-label="Previous page"
-          aria-page-label="Page"
-          aria-current-label="Current page"
-        >
-        </b-pagination>
-      </section>
+      <section class="wrapper"></section>
     </template>
   </div>
 </template>
