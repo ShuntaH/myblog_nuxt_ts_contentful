@@ -4,35 +4,45 @@
     <div
       v-for="(post, i) in relatedPosts(category.fields.name)"
       :key="i"
-      class="post-card has-background-white-bis"
+      class="post-card has-background-white-ter"
     >
       <div v-if="post.fields.thumbnail">
-        <figure class="image is-2by1">
-          <img
-            :src="post.fields.thumbnail.fields.file.url"
-            :alt="post.fields.title"
-            class="post-card-image"
-          />
-          <b-tag class="post-card-category" rounded>
-            {{ post.fields.category.fields.name }}
-          </b-tag>
-        </figure>
+        <nuxt-link
+          :to="{ name: 'posts-slug', params: { slug: post.fields.slug } }"
+        >
+          <figure class="image is-5by3">
+            <img
+              :src="post.fields.thumbnail.fields.file.url"
+              :alt="post.fields.title"
+              class="post-card-image"
+            />
+            <b-tag class="post-card-category" rounded>
+              {{ post.fields.category.fields.name }}
+            </b-tag>
+          </figure>
+        </nuxt-link>
       </div>
-      <h2 class="post-title">
-        <nuxt-link :to="`/posts/${post.fields.slug}`">
-          <span class="is-size-4">{{ post.fields.title }}</span>
+      <h2 class="is-size-4 has-text-centered post-title">
+        <nuxt-link
+          :to="{ name: 'posts-slug', params: { slug: post.fields.slug } }"
+        >
+          {{ post.fields.title }}
         </nuxt-link>
       </h2>
-      <div class="content">
-        <div
-          class="has-text-dark"
-          v-html="truncate(toHtmlString(post.fields.content), 100)"
-        ></div>
-        <time
-          ><small class="has-text-grey">{{
-            formatDate(post.sys.createdAt)
-          }}</small></time
-        >
+      <div class="has-text-centered content">
+        <time>
+          <small class="has-text-grey">
+            {{ formatDate(post.sys.createdAt) }}
+          </small>
+        </time>
+        <p>
+          <nuxt-link
+            class="is-size-6"
+            :to="{ name: 'posts-slug', params: { slug: post.fields.slug } }"
+          >
+            READ MORE
+          </nuxt-link>
+        </p>
       </div>
     </div>
   </div>
@@ -81,4 +91,41 @@ export default class Category extends Vue {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss">
+.title {
+  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  display: block;
+  font-weight: 300;
+  font-size: 100px;
+  color: #35495e;
+  letter-spacing: 1px;
+}
+
+.links {
+  padding-top: 15px;
+}
+.post-card {
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  border: none;
+}
+.post-card-image {
+  border-radius: 10px;
+  position: relative;
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+.post-card-category {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.post-title {
+  padding: 12px 0;
+}
+</style>
