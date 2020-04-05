@@ -32,7 +32,7 @@
       <b-navbar-item
         class="has-text-weight-medium"
         tag="router-link"
-        :to="{ path: '/about' }"
+        :to="{ path: '/contact' }"
       >
         Contact
       </b-navbar-item>
