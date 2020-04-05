@@ -1,15 +1,22 @@
 <template>
   <article class="article">
     <div class="single has-background-white-bis">
-      <h1 class="is-size-3 has-text-dark article-title">
-        {{ currentPost.fields.title }}
-      </h1>
+      <div class="article-header">
+        <h1 class="is-size-1 has-text-dark has-text-centered article-title">
+          {{ currentPost.fields.title }}
+        </h1>
+        <p class="has-text-grey has-text-centered">
+          {{ formatDate(currentPost.sys.createdAt) }}
+          &nbsp;
+          <b-tag rounded>
+            {{ currentPost.fields.category.fields.name }}
+          </b-tag>
+        </p>
+      </div>
       <div
         class="has-text-dark article-content"
         v-html="toHtmlString(currentPost.fields.content)"
       ></div>
-      <p class="has-text-grey">{{ formatDate(currentPost.sys.createdAt) }}</p>
-      <p class="has-text-grey">{{ currentPost.fields.category.fields.name }}</p>
     </div>
   </article>
 </template>
@@ -63,11 +70,15 @@ export default class Slug extends Vue {
 }
 </script>
 <style lang="scss" scoped>
-.article-title {
+.article-header {
   padding-bottom: 60px;
+  .article-title {
+  }
 }
+
 .article-content {
   padding-bottom: 100px;
   line-height: 2;
+  letter-spacing: 0.07em;
 }
 </style>
