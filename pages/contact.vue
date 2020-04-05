@@ -21,7 +21,7 @@
           </b-field>
           <b-field>
             <p class="control">
-              <button type="submit" class="button">
+              <button type="submit" class="button is-primary">
                 Send message
               </button>
             </p>
