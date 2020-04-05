@@ -1,23 +1,21 @@
 <template>
   <article class="article">
-    <div class="single has-background-white-bis">
-      <div class="article-header">
-        <h1 class="is-size-1 has-text-dark has-text-centered article-title">
-          {{ currentPost.fields.title }}
-        </h1>
-        <p class="has-text-grey has-text-centered">
-          {{ formatDate(currentPost.sys.createdAt) }}
-          &nbsp;
-          <b-tag rounded>
-            {{ currentPost.fields.category.fields.name }}
-          </b-tag>
-        </p>
-      </div>
-      <div
-        class="has-text-dark article-content"
-        v-html="toHtmlString(currentPost.fields.content)"
-      ></div>
+    <div class="article-header">
+      <h1 class="is-size-1 has-text-dark has-text-centered article-title">
+        {{ currentPost.fields.title }}
+      </h1>
+      <p class="has-text-grey has-text-centered">
+        {{ formatDate(currentPost.sys.createdAt) }}
+        &nbsp;
+        <b-tag rounded>
+          {{ currentPost.fields.category.fields.name }}
+        </b-tag>
+      </p>
     </div>
+    <div
+      class="has-text-dark article-content"
+      v-html="toHtmlString(currentPost.fields.content)"
+    ></div>
   </article>
 </template>
 
