@@ -19,24 +19,22 @@
       ประสบการ์ณเรียนต่อที่ญี่ปุ่น เพื่อนคนต่างชาติ
     </p>
     <p class="has-text-centered">
-      <a href="https://www.facebook.com/sararin.michaelis"
-        ><font-awesome-icon :icon="['fab', 'facebook']"
-      /></a>
-      <a href="https://mobile.twitter.com/rin36xxx"
-        ><font-awesome-icon :icon="['fab', 'twitter']"
-      /></a>
-      <a href="https://www.instagram.com/rin36xxx/"
-        ><font-awesome-icon :icon="['fab', 'instagram']"
-      /></a>
+      <a href="https://www.facebook.com/sararin.michaelis">
+        <font-awesome-icon :icon="['fab', 'facebook']" />
+      </a>
+      <a href="https://mobile.twitter.com/rin36xxx">
+        <font-awesome-icon :icon="['fab', 'twitter']" />
+      </a>
+      <a href="https://www.instagram.com/rin36xxx/">
+        <font-awesome-icon :icon="['fab', 'instagram']" />
+      </a>
     </p>
   </div>
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 
-@Component({
-  components: {}
-})
+@Component({})
 export default class Slider extends Vue {}
 </script>
 
