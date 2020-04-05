@@ -72,7 +72,6 @@ export default {
     typography: true
   },
   generate: {
-    fallback: true,
     routes() {
       const client: ContentfulClientApi = contentful.createClient({
         space: process.env.CTF_SPACE_ID,

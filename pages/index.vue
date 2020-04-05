@@ -65,28 +65,14 @@
 import { Component, Vue } from 'vue-property-decorator'
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
 import { mapState } from 'vuex'
-import Slider from '~/components/Slider.vue'
 
 @Component({
-  components: {
-    Slider
-  },
+  components: {},
   computed: {
     ...mapState(['posts'])
   }
 })
 export default class IndexPage extends Vue {
-  current = 10
-  perPage = 10
-  rangeBefore = 3
-  rangeAfter = 1
-  order = ''
-  size = ''
-  isSimple = false
-  isRounded = false
-  prevIcon = 'chevron-left'
-  nextIcon = 'chevron-right'
-
   public formatDate(iso: string | number | Date) {
     const date = new Date(iso)
     const yyyy = String(date.getFullYear())
