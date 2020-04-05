@@ -17,7 +17,7 @@
             <b-input type="text" name="subject"></b-input>
           </b-field>
           <b-field label="Message">
-            <b-input maxlength="400" type="textarea"></b-input>
+            <b-input maxlength="400" type="textarea" name="message"></b-input>
           </b-field>
           <b-field>
             <p class="control">
