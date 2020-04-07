@@ -11,7 +11,6 @@
     :pagination-padding="5"
     :autoplay-timeout="4000"
     :autoplay-hover-pause="true"
-    :navigation-enabled="true"
   >
     <slide v-for="(post, i) in posts" :key="i" class="carousel-wrapper">
       <nuxt-link
