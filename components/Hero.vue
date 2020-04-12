@@ -4,10 +4,10 @@
       <div class="hero-body  hero-wrapper">
         <div class="container">
           <h1 class="title is-size-2-mobile extra-font">
-            Rin is fine
+            がぱおとまっく
           </h1>
           <h2 class="subtitle is-size-5-mobile extra-font">
-            Travel with me & aesthetic thing
+            Gapao and MacbookPro are always beside me
           </h2>
         </div>
       </div>

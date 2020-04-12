@@ -11,22 +11,18 @@
     <h4
       class="has-text-centered has-text-dark has-text-weight-semibold is-size-5"
     >
-      Rin36xxx
+      がぱお
     </h4>
     <p class="has-text-centered profile-text">
-      Take a picture, Art, Music and Cafe, Japan, travel รีวิวตามใจฉัน
-      ร้านนวดสปา ทำผม ร้านคาเฟ่ แชร์ประสบการ์ณเดทกับหนุ่มญี่ปุ่น
-      ประสบการ์ณเรียนต่อที่ญี่ปุ่น เพื่อนคนต่างชาติ
+      毎日毎食ガパオライスを食べていても<br />
+      まだ食べていたいWeb developer.
     </p>
     <p class="has-text-centered">
-      <a href="https://www.facebook.com/sararin.michaelis">
-        <font-awesome-icon :icon="['fab', 'facebook']" />
+      <a href="https://github.com/ShuntaH">
+        <font-awesome-icon :icon="['fab', 'github']" />
       </a>
-      <a href="https://mobile.twitter.com/rin36xxx">
+      <a href="#">
         <font-awesome-icon :icon="['fab', 'twitter']" />
-      </a>
-      <a href="https://www.instagram.com/rin36xxx/">
-        <font-awesome-icon :icon="['fab', 'instagram']" />
       </a>
     </p>
   </div>
