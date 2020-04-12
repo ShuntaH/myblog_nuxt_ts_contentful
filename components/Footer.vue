@@ -4,7 +4,7 @@
       <div class="content has-text-centered">
         <p>
           <nuxt-link to="/">
-            <strong class="footer-title">Rin is fine</strong>
+            <strong class="footer-title">がぱおとまっく</strong>
           </nuxt-link>
           by
           <a href="https://github.com/ShuntaH">ShuntaH</a>
@@ -18,7 +18,7 @@
             | Theme by <strong><a href="https://buefy.org/">Buefy</a></strong>
           </small>
         </p>
-        <p><small>© 2020 Rin is fine.</small></p>
+        <p><small>© 2020 がぱおとまっく</small></p>
       </div>
     </div>
   </footer>
