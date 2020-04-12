@@ -1,6 +1,6 @@
 # myblog_nuxt_ts_contentful
-
-MacOS + Nuxt.js + TypeScript + Buefy + contentful + Netlify + WebStorm
+* [![Netlify Status](https://api.netlify.com/api/v1/badges/f4283c76-91e6-4af4-9506-eb6812774fb8/deploy-status)](https://app.netlify.com/sites/gapao-blog/deploys)<br>
+* MacOS + Nuxt.js + TypeScript + Buefy + contentful + Netlify + WebStorm
 
 ## Description
 This is my first work using javascript.<br>
