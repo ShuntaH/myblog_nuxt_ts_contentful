@@ -11,7 +11,7 @@
         tag="router-link"
         :to="{ path: '/' }"
       >
-        Rin is fine
+        LingoDev
       </b-navbar-item>
     </template>
     <template slot="start">
