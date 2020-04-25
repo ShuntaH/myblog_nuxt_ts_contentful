@@ -9,8 +9,8 @@ export default {
    ** Headers of the page
    */
   head: {
-    title: 'Travel with me & aesthetic thing',
-    titleTemplate: 'Rin is fine | %s',
+    title: 'Top',
+    titleTemplate: '%s | LingoDev',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -18,7 +18,7 @@ export default {
         hid: 'description',
         name: 'description',
         content:
-          'บล็อกรีวิว สถานที่ท่องเที่ยว ร้านคาเฟ่ ภาษาญี่ปุ่น ศิลปะกับกล้องฟิลม์ ฟังเพลงสากล สุขภาพและความงามโดยมนุษย์ Introvert ที่เรียนจบแพทย์'
+          '主にPython(Django), Vue.js, Nuxt.jsをメインで開発している時の忘備録Blog'
       }
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
