@@ -17,8 +17,7 @@ export default {
       {
         hid: 'description',
         name: 'description',
-        content:
-          '主にPython(Django), Vue.js, Nuxt.jsをメインで開発している時の忘備録Blog'
+        content: '文系から海外移住をすることを決めたエンジニアの忘備録'
       }
     ],
     link: [
