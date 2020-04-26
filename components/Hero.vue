@@ -28,6 +28,7 @@ export default class Hero extends Vue {}
     width: 98%;
     height: 100vh;
     object-fit: cover;
+    object-position: center top;
     display: block;
     margin: 0 auto;
   }
@@ -47,6 +48,7 @@ export default class Hero extends Vue {}
       width: 98%;
       height: auto;
       object-fit: cover;
+      object-position: center top;
       display: block;
       margin: 0 auto;
     }
