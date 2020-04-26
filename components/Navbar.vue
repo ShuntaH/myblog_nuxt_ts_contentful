@@ -52,7 +52,7 @@
       </b-navbar-dropdown>
     </template>
     <template slot="end">
-      <div class="navbar-end columns">
+      <b-navbar-item class="navbar-end columns" tag="div">
         <div class="column navbar-end-items">
           <b-field>
             <b-input
@@ -64,7 +64,7 @@
             </b-input>
           </b-field>
         </div>
-      </div>
+      </b-navbar-item>
     </template>
   </b-navbar>
 </template>
