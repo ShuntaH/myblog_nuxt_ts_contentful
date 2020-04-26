@@ -10,7 +10,7 @@ export default {
    */
   head: {
     title: 'Top',
-    titleTemplate: '%s | LingoDev',
+    titleTemplate: '%s | ambiguous memo',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -21,7 +21,13 @@ export default {
           '主にPython(Django), Vue.js, Nuxt.jsをメインで開発している時の忘備録Blog'
       }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      {
+        rel: 'stylesheet',
+        href: 'https://use.fontawesome.com/releases/v5.2.0/css/all.css'
+      }
+    ]
   },
   /*
    ** Customize the progress-bar color
@@ -121,7 +127,7 @@ export default {
   },
   sitemap: {
     path: '/sitemap.xml',
-    hostname: 'https://moemoerinrin.netlify.com/',
+    hostname: 'https://ambiguous-memo.netlify.app/',
     cacheTime: 12 * 3600,
     generate: true
   }
