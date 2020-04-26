@@ -2,7 +2,11 @@
   <div class="has-background-white-bis">
     <Navbar></Navbar>
     <Hero></Hero>
-    <Slider></Slider>
+    <Slider>
+      <template #title>
+        The latest articles
+      </template>
+    </Slider>
     <div class="main-wrapper">
       <div class="columns">
         <div class="column is-7">

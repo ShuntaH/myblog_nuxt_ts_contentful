@@ -9,19 +9,24 @@ export default {
    ** Headers of the page
    */
   head: {
-    title: 'Travel with me & aesthetic thing',
-    titleTemplate: 'Rin is fine | %s',
+    title: 'Top',
+    titleTemplate: '%s | ambiguous memo',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {
         hid: 'description',
         name: 'description',
-        content:
-          'บล็อกรีวิว สถานที่ท่องเที่ยว ร้านคาเฟ่ ภาษาญี่ปุ่น ศิลปะกับกล้องฟิลม์ ฟังเพลงสากล สุขภาพและความงามโดยมนุษย์ Introvert ที่เรียนจบแพทย์'
+        content: '文系から海外移住をすることを決めたエンジニアの忘備録'
       }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      {
+        rel: 'stylesheet',
+        href: 'https://use.fontawesome.com/releases/v5.2.0/css/all.css'
+      }
+    ]
   },
   /*
    ** Customize the progress-bar color
@@ -121,7 +126,7 @@ export default {
   },
   sitemap: {
     path: '/sitemap.xml',
-    hostname: 'https://moemoerinrin.netlify.com/',
+    hostname: 'https://ambiguous-memo.netlify.app/',
     cacheTime: 12 * 3600,
     generate: true
   }

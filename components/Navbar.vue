@@ -5,13 +5,14 @@
     has-text-centered
     :fixed-top="fixedTop"
   >
+    <!--spの時に表示-->
     <template slot="brand">
       <b-navbar-item
         class="is-hidden-desktop"
         tag="router-link"
         :to="{ path: '/' }"
       >
-        Rin is fine
+        ambiguous memo
       </b-navbar-item>
     </template>
     <template slot="start">
@@ -51,20 +52,19 @@
       </b-navbar-dropdown>
     </template>
     <template slot="end">
-      <div class="navbar-end">
-        <div class="control has-icons-right">
-          <input class="input" type="text" placeholder="Search" />
-          <span class="icon is-small is-right">
-            <font-awesome-icon icon="search" />
-          </span>
+      <b-navbar-item class="navbar-end columns" tag="div">
+        <div class="column navbar-end-items">
+          <b-field>
+            <b-input
+              placeholder="Search..."
+              type="search"
+              icon-pack="fas"
+              icon="search"
+            >
+            </b-input>
+          </b-field>
         </div>
-        <div>
-          &nbsp;
-          <a href="#"><font-awesome-icon :icon="['fab', 'facebook']"/></a>
-          <a href="#"><font-awesome-icon :icon="['fab', 'twitter']"/></a>
-          <a href="#"><font-awesome-icon :icon="['fab', 'instagram']"/></a>
-        </div>
-      </div>
+      </b-navbar-item>
     </template>
   </b-navbar>
 </template>
@@ -72,6 +72,7 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import { mapState } from 'vuex'
+
 @Component({
   computed: {
     ...mapState(['categories'])
@@ -86,9 +87,9 @@ export default class Navbar extends Vue {
 .navbar-container {
   padding: 6px 2rem;
 }
-.navbar-end {
+
+.navbar-end-items {
   display: flex;
-  justify-content: space-around;
   align-items: center;
 }
 </style>
