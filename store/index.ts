@@ -11,8 +11,8 @@ export const getters = {
     const posts = []
     // Using for is faster than filter()
     for (let i = 0; i < state.posts.length; i++) {
-      const catName = state.posts[i].fields.category.fields.name
-      if (category === catName) posts.push(state.posts[i])
+      const categoryApi = state.posts[i].fields.category.fields.name
+      if (category === categoryApi) posts.push(state.posts[i])
     }
     return posts
   }

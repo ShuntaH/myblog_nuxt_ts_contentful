@@ -9,15 +9,15 @@ export default {
    ** Headers of the page
    */
   head: {
-    title: 'Top',
-    titleTemplate: '%s | ambiguous memo',
+    title: 'Welcome',
+    titleTemplate: '%s | AoHal History',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {
         hid: 'description',
         name: 'description',
-        content: '文系から海外移住をすることを決めたエンジニアの忘備録'
+        content: '大学生がタイの女の子で心がボロボロになった話。'
       }
     ],
     link: [

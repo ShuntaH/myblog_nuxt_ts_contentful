@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!--topページの最新記事を表示-->
     <div
       v-for="(post, i) in posts"
       :key="i"
@@ -49,7 +50,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue } from 'nuxt-property-decorator'
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
 import { mapState } from 'vuex'
 
@@ -59,7 +60,7 @@ import { mapState } from 'vuex'
     ...mapState(['posts'])
   }
 })
-export default class IndexPage extends Vue {
+export default class extends Vue {
   public formatDate(iso: string | number | Date) {
     const date = new Date(iso)
     const yyyy = String(date.getFullYear())
@@ -77,7 +78,7 @@ export default class IndexPage extends Vue {
   }
 }
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .title {
   font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
     'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
