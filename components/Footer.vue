@@ -1,13 +1,15 @@
 <template>
   <footer class="footer has-background-dark">
     <div class="container">
-      <div class="content has-text-centered">
+      <div class="content has-text-centered has-text-light">
         <p>
           <nuxt-link to="/">
-            <strong class="footer-title">ambiguous memo</strong>
+            <strong class="footer-title has-text-light">AoHal</strong>
           </nuxt-link>
-          by
-          <a href="https://github.com/ShuntaH">ShuntaH</a>
+          <br />
+          <small>Written by</small> Evan
+          <small>|</small>
+          <small>Developed by</small> Alex
           <br />
           <small
             >Powered by
@@ -18,7 +20,7 @@
             | Theme by <strong><a href="https://buefy.org/">Buefy</a></strong>
           </small>
         </p>
-        <p><small>© 2020 ambiguous memo</small></p>
+        <p><small>© 2020 AoHal</small></p>
       </div>
     </div>
   </footer>

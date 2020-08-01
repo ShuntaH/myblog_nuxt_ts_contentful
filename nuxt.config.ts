@@ -9,15 +9,16 @@ export default {
    ** Headers of the page
    */
   head: {
-    title: 'Top',
-    titleTemplate: '%s | ambiguous memo',
+    title: 'Welcome',
+    titleTemplate: '%s | AoHal History',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {
         hid: 'description',
         name: 'description',
-        content: '文系から海外移住をすることを決めたエンジニアの忘備録'
+        content:
+          '2018年から2020年までの約2年にわたる日本の大学生とタイの女の子の恋の回顧録'
       }
     ],
     link: [
@@ -35,7 +36,11 @@ export default {
   /*
    ** Global CSS
    */
-  css: ['~/assets/css/buefy.scss'],
+  css: [
+    '~/assets/css/buefy.scss',
+    '~/assets/css/global.scss',
+    'animate.css/animate.min.css'
+  ],
   /*
    ** Plugins to load before mounting the App
    */
@@ -55,7 +60,7 @@ export default {
    ** Nuxt.js modules
    */
   modules: [
-    'nuxt-buefy',
+    ['nuxt-buefy', { css: true, materialDesignIcons: false }],
     '@nuxtjs/dotenv',
     '@nuxtjs/markdownit',
     'nuxt-fontawesome',

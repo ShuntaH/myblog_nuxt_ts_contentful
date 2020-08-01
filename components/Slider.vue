@@ -1,7 +1,7 @@
 <template>
   <div>
     <h2
-      class="is-size-5-mobile is-size-3-tablet has-text-weight-semibold has-text-centered section-title"
+      class="is-size-5-mobile is-size-3-tablet has-text-weight-semibold has-text-centered py-4"
     >
       <slot name="title"></slot>
     </h2>
@@ -72,12 +72,8 @@ export default class Slider extends Vue {}
 </script>
 
 <style lang="scss" scoped>
-.section-title {
-  padding: 100px 10px 30px;
-}
 .carousel-wrapper {
-  width: 98%;
-  margin: 0 auto;
+  width: 100%;
 }
 // responsive
 @media screen and (max-width: 768px) {
