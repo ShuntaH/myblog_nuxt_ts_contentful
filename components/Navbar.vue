@@ -1,15 +1,10 @@
 <template>
   <b-navbar class="has-text-white navbar-container" type="is-black" fixed-top>
     <template slot="brand">
-      <b-navbar-item
-        class="is-size-4 has-text-weight-semibold"
-        tag="router-link"
-        :to="{ path: '/' }"
-      >
-        AoHal
+      <b-navbar-item tag="router-link" :to="{ path: '/' }">
+        <h1 class="is-size-4 has-text-weight-semibold">AoHal</h1>
       </b-navbar-item>
     </template>
-    <template slot="start" />
     <template slot="end">
       <!--      <b-navbar-dropdown label="Category" hoverable>-->
       <!--        <b-navbar-item-->
@@ -25,14 +20,14 @@
       <!--        </b-navbar-item>-->
       <!--      </b-navbar-dropdown>-->
       <b-navbar-item
-        class="has-text-weight-normal"
+        class="has-text-weight-normal has-background-black"
         tag="router-link"
         :to="{ path: '/about' }"
       >
         About
       </b-navbar-item>
       <b-navbar-item
-        class="has-text-weight-normal"
+        class="has-text-weight-normal has-background-black"
         tag="router-link"
         :to="{ path: '/contact' }"
       >
@@ -44,13 +39,8 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import { mapState } from 'vuex'
 
-@Component({
-  computed: {
-    ...mapState(['categories'])
-  }
-})
+@Component({})
 export default class Navbar extends Vue {
   fixedTop: boolean = true
 }

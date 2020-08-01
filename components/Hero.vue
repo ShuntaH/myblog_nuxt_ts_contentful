@@ -5,9 +5,9 @@
         <h2 class="title is-size-4 hero-animation">
           日本の大学生とタイの女の子の恋の回顧録
         </h2>
-        <h3 class="subtitle is-size-6">
+        <p class="subtitle is-size-6">
           From 2018 to 2020
-        </h3>
+        </p>
       </div>
     </div>
   </section>

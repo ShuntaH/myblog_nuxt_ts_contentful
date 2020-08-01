@@ -1,33 +1,41 @@
 <template>
   <div>
-    <!--topページの最新記事を表示-->
-    <!--        <time>-->
-    <!--          <small class="has-text-grey">-->
-    <!--            {{ formatDate(post.sys.createdAt) }}-->
-    <!--          </small>-->
-    <!--        </time>-->
-    <div v-for="(post, i) in series" :key="i" class="card">
-      <!--      <nuxt-link-->
-      <!--        :to="{ name: 'posts-slug', params: { slug: post.fields.slug } }"-->
-      <!--      >-->
-      <div class="card-image">
-        <figure class="image is-4by3">
-          <img
-            :src="post.fields.thumbnail.fields.file.url"
-            :alt="post.fields.name"
-            class="post-card-image"
-          />
-          <!--          <b-tag class="post-card-category" rounded>-->
-          <!--            {{ post.fields.category.fields.name }}-->
-          <!--          </b-tag>-->
-        </figure>
-      </div>
-      <div class="card-content">
-        <div class="content">
-          {{ post.fields.name }}
+    <h2 class="animated__fadeInLeft">SERIES</h2>
+    <div class="columns is-mobile is-multiline">
+      <!--topページの最新記事を表示-->
+      <!--        <time>-->
+      <!--          <small class="has-text-grey">-->
+      <!--            {{ formatDate(post.sys.createdAt) }}-->
+      <!--          </small>-->
+      <!--        </time>-->
+      <div
+        v-for="(post, i) in series"
+        :key="i"
+        class="column is-3-desktop is-6-tablet is-12-mobile"
+      >
+        <div class="card">
+          <!--      <nuxt-link-->
+          <!--        :to="{ name: 'posts-slug', params: { slug: post.fields.slug } }"-->
+          <!--      >-->
+          <div class="card-image">
+            <figure class="image is-4by3">
+              <img
+                :src="post.fields.thumbnail.fields.file.url"
+                :alt="post.fields.name"
+                class="card-img"
+              />
+              <!--          <b-tag class="post-card-category" rounded>-->
+              <!--            {{ post.fields.category.fields.name }}-->
+              <!--          </b-tag>-->
+            </figure>
+          </div>
+          <div class="content px-3 py-3">
+            <p class="is-size-7 has-text-weight-semibold">SERIES{{ i + 1 }}</p>
+            <h3 class="is-size-5 mx-0 my-0">{{ post.fields.name }}</h3>
+          </div>
+          <!--      </nuxt-link>-->
         </div>
       </div>
-      <!--      </nuxt-link>-->
     </div>
   </div>
 </template>
@@ -58,6 +66,7 @@ export default class extends Vue {
   }
 }
 </script>
+
 <style lang="scss" scoped>
 .title {
   font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
@@ -69,31 +78,12 @@ export default class extends Vue {
   letter-spacing: 1px;
 }
 
-.links {
-  padding-top: 15px;
-}
-.post-card {
-  padding-bottom: 30px;
-  margin-bottom: 30px;
-  border-radius: 10px;
-  border: none;
-}
-.post-card-image {
-  border-radius: 10px;
-  position: relative;
-  &:hover {
-    opacity: 0.9;
-  }
+.card-img:hover {
+  opacity: 0.8;
 }
 
-.post-card-category {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-}
-
-.post-title {
-  padding: 12px 0;
+.content {
+  height: 260px;
 }
 
 @media screen and (max-width: 639px) {

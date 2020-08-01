@@ -97,7 +97,7 @@ html {
 @media screen and (min-width: 1024px) {
   /*pc用のcssを記述*/
   .main-wrapper {
-    padding: 80px 200px;
+    padding: 40px 80px;
     margin: 0 auto;
   }
 }
