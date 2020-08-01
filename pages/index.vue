@@ -1,51 +1,34 @@
 <template>
   <div>
     <!--topページの最新記事を表示-->
-    <div
-      v-for="(post, i) in posts"
-      :key="i"
-      class="post-card has-background-white-ter"
-    >
-      <div v-if="post.fields.thumbnail">
-        <nuxt-link
-          :to="{ name: 'posts-slug', params: { slug: post.fields.slug } }"
-        >
-          <figure class="image is-5by3">
-            <img
-              :src="post.fields.thumbnail.fields.file.url"
-              :alt="post.fields.title"
-              class="post-card-image"
-            />
-            <b-tag class="post-card-category" rounded>
-              {{ post.fields.category.fields.name }}
-            </b-tag>
-          </figure>
-        </nuxt-link>
+    <!--        <time>-->
+    <!--          <small class="has-text-grey">-->
+    <!--            {{ formatDate(post.sys.createdAt) }}-->
+    <!--          </small>-->
+    <!--        </time>-->
+    <div v-for="(post, i) in series" :key="i" class="card">
+      <!--      <nuxt-link-->
+      <!--        :to="{ name: 'posts-slug', params: { slug: post.fields.slug } }"-->
+      <!--      >-->
+      <div class="card-image">
+        <figure class="image is-4by3">
+          <img
+            :src="post.fields.thumbnail.fields.file.url"
+            :alt="post.fields.name"
+            class="post-card-image"
+          />
+          <!--          <b-tag class="post-card-category" rounded>-->
+          <!--            {{ post.fields.category.fields.name }}-->
+          <!--          </b-tag>-->
+        </figure>
       </div>
-      <h2 class="is-size-4 has-text-centered post-title">
-        <nuxt-link
-          :to="{ name: 'posts-slug', params: { slug: post.fields.slug } }"
-        >
-          {{ post.fields.title }}
-        </nuxt-link>
-      </h2>
-      <div class="has-text-centered content">
-        <time>
-          <small class="has-text-grey">
-            {{ formatDate(post.sys.createdAt) }}
-          </small>
-        </time>
-        <p>
-          <nuxt-link
-            class="is-size-6"
-            :to="{ name: 'posts-slug', params: { slug: post.fields.slug } }"
-          >
-            READ MORE
-          </nuxt-link>
-        </p>
+      <div class="card-content">
+        <div class="content">
+          {{ post.fields.name }}
+        </div>
       </div>
+      <!--      </nuxt-link>-->
     </div>
-    <section class="pagination-wrapper"></section>
   </div>
 </template>
 
@@ -68,10 +51,6 @@ export default class extends Vue {
     const mm = String(date.getMonth() + 1).padStart(2, '0')
     const dd = String(date.getDate()).padStart(2, '0')
     return `${yyyy}.${mm}.${dd}`
-  }
-
-  public truncate(str: string, len: number) {
-    return str.length <= len ? str : str.substr(0, len) + '...'
   }
 
   public toHtmlString(obj: any) {
