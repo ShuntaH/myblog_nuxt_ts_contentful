@@ -57,7 +57,7 @@ import { mapState } from 'vuex'
 @Component({
   components: {},
   computed: {
-    ...mapState(['posts'])
+    ...mapState(['series'])
   },
   layout: 'default'
 })

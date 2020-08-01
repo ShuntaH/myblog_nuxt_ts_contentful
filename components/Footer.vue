@@ -1,12 +1,15 @@
 <template>
   <footer class="footer has-background-dark">
     <div class="container">
-      <div class="content has-text-centered">
+      <div class="content has-text-centered has-text-light">
         <p>
           <nuxt-link to="/">
-            <strong class="footer-title">AoHal</strong>
+            <strong class="footer-title has-text-light">AoHal</strong>
           </nuxt-link>
-          written by Evan
+          <br />
+          <small>Written by</small> Evan
+          <small>|</small>
+          <small>Developed by</small> Alex
           <br />
           <small
             >Powered by
