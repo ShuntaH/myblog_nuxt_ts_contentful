@@ -21,7 +21,6 @@
     "@nuxtjs/dotenv": "^1.4.1",
     "@nuxtjs/markdownit": "^1.2.10",
     "@nuxtjs/sitemap": "^2.4.0",
-    "animate.css": "^4.1.0",
     "bulma": "^0.9.0",
     "contentful": "^7.14.5",
     "dotenv": "latest",

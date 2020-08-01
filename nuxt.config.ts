@@ -17,7 +17,8 @@ export default {
       {
         hid: 'description',
         name: 'description',
-        content: '大学生がタイ人'
+        content:
+          '2018年から2020年までの約2年にわたる日本の大学生とタイの女の子の恋の回顧録'
       }
     ],
     link: [

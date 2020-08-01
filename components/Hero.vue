@@ -2,7 +2,7 @@
   <section class="hero is-medium is-dark is-bold">
     <div class="hero-body">
       <div class="container">
-        <h2 class="title is-size-4">
+        <h2 class="title is-size-4 hero-animation">
           日本の大学生とタイの女の子の恋の回顧録
         </h2>
         <h3 class="subtitle is-size-6">
@@ -26,5 +26,21 @@ export default class Hero extends Vue {}
   background-repeat: no-repeat;
   background-size: cover;
   opacity: 0.8;
+}
+
+.hero-animation {
+  animation-name: fade-animation;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade-animation {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 </style>
