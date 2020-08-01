@@ -4,10 +4,9 @@
       <div class="content has-text-centered">
         <p>
           <nuxt-link to="/">
-            <strong class="footer-title">ambiguous memo</strong>
+            <strong class="footer-title">AoHal</strong>
           </nuxt-link>
-          by
-          <a href="https://github.com/ShuntaH">ShuntaH</a>
+          written by Evan
           <br />
           <small
             >Powered by
@@ -18,7 +17,7 @@
             | Theme by <strong><a href="https://buefy.org/">Buefy</a></strong>
           </small>
         </p>
-        <p><small>© 2020 ambiguous memo</small></p>
+        <p><small>© 2020 AoHal</small></p>
       </div>
     </div>
   </footer>
