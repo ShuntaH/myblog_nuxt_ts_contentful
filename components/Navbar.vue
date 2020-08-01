@@ -11,19 +11,19 @@
     </template>
     <template slot="start" />
     <template slot="end">
-      <b-navbar-dropdown label="Category" hoverable>
-        <b-navbar-item
-          v-for="(category, i) in categories"
-          :key="i"
-          tag="router-link"
-          :to="{
-            name: 'categories-slug',
-            params: { slug: category.fields.slug }
-          }"
-        >
-          {{ category.fields.name }}
-        </b-navbar-item>
-      </b-navbar-dropdown>
+      <!--      <b-navbar-dropdown label="Category" hoverable>-->
+      <!--        <b-navbar-item-->
+      <!--          v-for="(category, i) in categories"-->
+      <!--          :key="i"-->
+      <!--          tag="router-link"-->
+      <!--          :to="{-->
+      <!--            name: 'categories-slug',-->
+      <!--            params: { slug: category.fields.slug }-->
+      <!--          }"-->
+      <!--        >-->
+      <!--          {{ category.fields.name }}-->
+      <!--        </b-navbar-item>-->
+      <!--      </b-navbar-dropdown>-->
       <b-navbar-item
         class="has-text-weight-normal"
         tag="router-link"

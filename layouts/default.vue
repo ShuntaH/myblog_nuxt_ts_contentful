@@ -2,21 +2,8 @@
   <div class="has-background-white-bis">
     <Navbar />
     <Hero />
-    <Slider>
-      <template #title>
-        The latest articles
-      </template>
-    </Slider>
     <div class="main-wrapper">
-      <div class="columns">
-        <div class="column is-7">
-          <nuxt />
-        </div>
-        <div class="column is-4 is-offset-1">
-          <Author class="sidebar-distance"></Author>
-          <Category class="sidebar-distance"></Category>
-        </div>
-      </div>
+      <nuxt />
     </div>
     <Footer></Footer>
   </div>
@@ -24,23 +11,19 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import Header from '~/components/Header.vue'
 import Navbar from '~/components/Navbar.vue'
 import Hero from '~/components/Hero.vue'
 import Footer from '~/components/Footer.vue'
 import Category from '~/components/Category.vue'
-import Slider from '~/components/Slider.vue'
 import Author from '~/components/Author.vue'
 
 @Component({
   components: {
     Category,
     Author,
-    Slider,
     Navbar,
     Footer,
-    Hero,
-    Header
+    Hero
   }
 })
 export default class extends Vue {}
@@ -93,14 +76,6 @@ html {
 .button--grey:hover {
   color: #fff;
   background-color: #35495e;
-}
-
-.hero-wrapper {
-  margin-top: 0;
-}
-
-.sidebar-distance {
-  margin-bottom: 70px;
 }
 
 @media screen and (max-width: 639px) {
