@@ -17,7 +17,7 @@ export default {
       {
         hid: 'description',
         name: 'description',
-        content: '大学生がタイの女の子で心がボロボロになった話。'
+        content: '大学生がタイ人'
       }
     ],
     link: [
@@ -35,7 +35,7 @@ export default {
   /*
    ** Global CSS
    */
-  css: ['~/assets/css/buefy.scss'],
+  css: ['~/assets/css/buefy.scss', '~/assets/css/global.scss'],
   /*
    ** Plugins to load before mounting the App
    */
@@ -55,7 +55,7 @@ export default {
    ** Nuxt.js modules
    */
   modules: [
-    'nuxt-buefy',
+    ['nuxt-buefy', { css: true, materialDesignIcons: false }],
     '@nuxtjs/dotenv',
     '@nuxtjs/markdownit',
     'nuxt-fontawesome',

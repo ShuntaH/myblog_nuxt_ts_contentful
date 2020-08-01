@@ -6,7 +6,7 @@
       Profile
     </h3>
     <figure class="image is-128x128 profile-pic">
-      <img class="is-rounded" src="~/assets/images/profile.jpg" />
+      <img class="is-rounded" src="~/assets/images/profile/evan.jpg" />
     </figure>
     <h4
       class="has-text-centered has-text-dark has-text-weight-semibold is-size-5"

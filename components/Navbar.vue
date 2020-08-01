@@ -1,42 +1,16 @@
 <template>
-  <b-navbar
-    class="has-text-grey-dark navbar-container"
-    type="is-white"
-    has-text-centered
-    :fixed-top="fixedTop"
-  >
-    <!--spの時に表示-->
+  <b-navbar class="has-text-white navbar-container" type="is-black" fixed-top>
     <template slot="brand">
       <b-navbar-item
-        class="is-hidden-desktop"
+        class="is-size-4 has-text-weight-semibold"
         tag="router-link"
         :to="{ path: '/' }"
       >
-        ambiguous memo
+        AoHal
       </b-navbar-item>
     </template>
-    <template slot="start">
-      <b-navbar-item
-        class="has-text-weight-medium"
-        tag="router-link"
-        :to="{ path: '/' }"
-      >
-        Home
-      </b-navbar-item>
-      <b-navbar-item
-        class="has-text-weight-medium"
-        tag="router-link"
-        :to="{ path: '/about' }"
-      >
-        About
-      </b-navbar-item>
-      <b-navbar-item
-        class="has-text-weight-medium"
-        tag="router-link"
-        :to="{ path: '/contact' }"
-      >
-        Contact
-      </b-navbar-item>
+    <template slot="start" />
+    <template slot="end">
       <b-navbar-dropdown label="Category" hoverable>
         <b-navbar-item
           v-for="(category, i) in categories"
@@ -50,20 +24,19 @@
           {{ category.fields.name }}
         </b-navbar-item>
       </b-navbar-dropdown>
-    </template>
-    <template slot="end">
-      <b-navbar-item class="navbar-end columns" tag="div">
-        <div class="column navbar-end-items">
-          <b-field>
-            <b-input
-              placeholder="Search..."
-              type="search"
-              icon-pack="fas"
-              icon="search"
-            >
-            </b-input>
-          </b-field>
-        </div>
+      <b-navbar-item
+        class="has-text-weight-normal"
+        tag="router-link"
+        :to="{ path: '/about' }"
+      >
+        About
+      </b-navbar-item>
+      <b-navbar-item
+        class="has-text-weight-normal"
+        tag="router-link"
+        :to="{ path: '/contact' }"
+      >
+        Contact
       </b-navbar-item>
     </template>
   </b-navbar>

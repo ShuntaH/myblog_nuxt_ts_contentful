@@ -58,7 +58,8 @@ import { mapState } from 'vuex'
   components: {},
   computed: {
     ...mapState(['posts'])
-  }
+  },
+  layout: 'default'
 })
 export default class extends Vue {
   public formatDate(iso: string | number | Date) {

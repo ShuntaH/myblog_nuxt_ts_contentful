@@ -1,7 +1,7 @@
 <template>
   <div class="has-background-white-bis">
-    <Navbar></Navbar>
-    <Hero></Hero>
+    <Navbar />
+    <Hero />
     <Slider>
       <template #title>
         The latest articles
@@ -24,12 +24,14 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
+import Header from '~/components/Header.vue'
 import Navbar from '~/components/Navbar.vue'
 import Hero from '~/components/Hero.vue'
 import Footer from '~/components/Footer.vue'
 import Category from '~/components/Category.vue'
 import Slider from '~/components/Slider.vue'
 import Author from '~/components/Author.vue'
+
 @Component({
   components: {
     Category,
@@ -37,7 +39,8 @@ import Author from '~/components/Author.vue'
     Slider,
     Navbar,
     Footer,
-    Hero
+    Hero,
+    Header
   }
 })
 export default class extends Vue {}
