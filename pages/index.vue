@@ -53,6 +53,14 @@ import { mapState } from 'vuex'
   layout: 'default'
 })
 export default class extends Vue {
+  mounted() {
+    this.$nextTick(() => {
+      this.$nuxt.$loading.start()
+
+      setTimeout(() => this.$nuxt.$loading.finish(), 1500)
+    })
+  }
+
   public formatDate(iso: string | number | Date) {
     const date = new Date(iso)
     const yyyy = String(date.getFullYear())

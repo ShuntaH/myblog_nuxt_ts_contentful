@@ -1,5 +1,5 @@
 <template>
-  <b-navbar class="has-text-white navbar-container" type="is-black" fixed-top>
+  <b-navbar class="has-text-white navbar-container" type="is-black">
     <template slot="brand">
       <b-navbar-item tag="router-link" :to="{ path: '/' }">
         <h1 class="is-size-4 has-text-weight-semibold">AoHal</h1>
@@ -49,6 +49,10 @@ export default class Navbar extends Vue {
 <style lang="scss" scoped>
 .navbar-container {
   padding: 6px 2rem;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
 }
 
 .navbar-end-items {

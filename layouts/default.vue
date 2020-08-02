@@ -1,7 +1,7 @@
 <template>
   <div class="has-background-white-bis">
     <Navbar />
-    <Hero />
+    <Hero style="margin-top: 64px" />
     <div class="main-wrapper">
       <nuxt />
     </div>
