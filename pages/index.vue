@@ -1,65 +1,66 @@
 <template>
   <div>
-    <div
-      v-for="(post, i) in posts"
-      :key="i"
-      class="post-card has-background-white-ter"
-    >
-      <div v-if="post.fields.thumbnail">
-        <nuxt-link
-          :to="{ name: 'posts-slug', params: { slug: post.fields.slug } }"
-        >
-          <figure class="image is-5by3">
-            <img
-              :src="post.fields.thumbnail.fields.file.url"
-              :alt="post.fields.title"
-              class="post-card-image"
-            />
-            <b-tag class="post-card-category" rounded>
-              {{ post.fields.category.fields.name }}
-            </b-tag>
-          </figure>
-        </nuxt-link>
-      </div>
-      <h2 class="is-size-4 has-text-centered post-title">
-        <nuxt-link
-          :to="{ name: 'posts-slug', params: { slug: post.fields.slug } }"
-        >
-          {{ post.fields.title }}
-        </nuxt-link>
-      </h2>
-      <div class="has-text-centered content">
-        <time>
-          <small class="has-text-grey">
-            {{ formatDate(post.sys.createdAt) }}
-          </small>
-        </time>
-        <p>
-          <nuxt-link
-            class="is-size-6"
-            :to="{ name: 'posts-slug', params: { slug: post.fields.slug } }"
-          >
-            READ MORE
-          </nuxt-link>
-        </p>
+    <h2 class="animated__fadeInLeft">SERIES</h2>
+    <div class="columns is-mobile is-multiline">
+      <!--topページの最新記事を表示-->
+      <!--        <time>-->
+      <!--          <small class="has-text-grey">-->
+      <!--            {{ formatDate(post.sys.createdAt) }}-->
+      <!--          </small>-->
+      <!--        </time>-->
+      <div
+        v-for="(post, i) in series"
+        :key="i"
+        class="column is-3-desktop is-6-tablet is-12-mobile"
+      >
+        <div class="card">
+          <!--      <nuxt-link-->
+          <!--        :to="{ name: 'posts-slug', params: { slug: post.fields.slug } }"-->
+          <!--      >-->
+          <div class="card-image">
+            <figure class="image is-4by3">
+              <img
+                :src="post.fields.thumbnail.fields.file.url"
+                :alt="post.fields.name"
+                class="card-img"
+              />
+              <!--          <b-tag class="post-card-category" rounded>-->
+              <!--            {{ post.fields.category.fields.name }}-->
+              <!--          </b-tag>-->
+            </figure>
+          </div>
+          <div class="content px-3 py-3">
+            <p class="is-size-7 has-text-weight-semibold">SERIES{{ i + 1 }}</p>
+            <h3 class="is-size-5 mx-0 my-0">{{ post.fields.name }}</h3>
+          </div>
+          <!--      </nuxt-link>-->
+        </div>
       </div>
     </div>
-    <section class="pagination-wrapper"></section>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue } from 'nuxt-property-decorator'
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
 import { mapState } from 'vuex'
 
 @Component({
   components: {},
   computed: {
-    ...mapState(['posts'])
-  }
+    ...mapState(['series'])
+  },
+  layout: 'default'
 })
-export default class IndexPage extends Vue {
+export default class extends Vue {
+  mounted() {
+    this.$nextTick(() => {
+      this.$nuxt.$loading.start()
+
+      setTimeout(() => this.$nuxt.$loading.finish(), 1500)
+    })
+  }
+
   public formatDate(iso: string | number | Date) {
     const date = new Date(iso)
     const yyyy = String(date.getFullYear())
@@ -68,16 +69,13 @@ export default class IndexPage extends Vue {
     return `${yyyy}.${mm}.${dd}`
   }
 
-  public truncate(str: string, len: number) {
-    return str.length <= len ? str : str.substr(0, len) + '...'
-  }
-
   public toHtmlString(obj: any) {
     return documentToHtmlString(obj)
   }
 }
 </script>
-<style lang="scss">
+
+<style lang="scss" scoped>
 .title {
   font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
     'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
@@ -88,31 +86,12 @@ export default class IndexPage extends Vue {
   letter-spacing: 1px;
 }
 
-.links {
-  padding-top: 15px;
-}
-.post-card {
-  padding-bottom: 30px;
-  margin-bottom: 30px;
-  border-radius: 10px;
-  border: none;
-}
-.post-card-image {
-  border-radius: 10px;
-  position: relative;
-  &:hover {
-    opacity: 0.9;
-  }
+.card-img:hover {
+  opacity: 0.8;
 }
 
-.post-card-category {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-}
-
-.post-title {
-  padding: 12px 0;
+.content {
+  height: 260px;
 }
 
 @media screen and (max-width: 639px) {

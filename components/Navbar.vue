@@ -1,69 +1,37 @@
 <template>
-  <b-navbar
-    class="has-text-grey-dark navbar-container"
-    type="is-white"
-    has-text-centered
-    :fixed-top="fixedTop"
-  >
-    <!--spの時に表示-->
+  <b-navbar class="has-text-white navbar-container" type="is-black">
     <template slot="brand">
-      <b-navbar-item
-        class="is-hidden-desktop"
-        tag="router-link"
-        :to="{ path: '/' }"
-      >
-        ambiguous memo
+      <b-navbar-item tag="router-link" :to="{ path: '/' }">
+        <h1 class="is-size-4 has-text-weight-semibold">AoHal</h1>
       </b-navbar-item>
     </template>
-    <template slot="start">
+    <template slot="end">
+      <!--      <b-navbar-dropdown label="Category" hoverable>-->
+      <!--        <b-navbar-item-->
+      <!--          v-for="(category, i) in categories"-->
+      <!--          :key="i"-->
+      <!--          tag="router-link"-->
+      <!--          :to="{-->
+      <!--            name: 'categories-slug',-->
+      <!--            params: { slug: category.fields.slug }-->
+      <!--          }"-->
+      <!--        >-->
+      <!--          {{ category.fields.name }}-->
+      <!--        </b-navbar-item>-->
+      <!--      </b-navbar-dropdown>-->
       <b-navbar-item
-        class="has-text-weight-medium"
-        tag="router-link"
-        :to="{ path: '/' }"
-      >
-        Home
-      </b-navbar-item>
-      <b-navbar-item
-        class="has-text-weight-medium"
+        class="has-text-weight-normal has-background-black"
         tag="router-link"
         :to="{ path: '/about' }"
       >
         About
       </b-navbar-item>
       <b-navbar-item
-        class="has-text-weight-medium"
+        class="has-text-weight-normal has-background-black"
         tag="router-link"
         :to="{ path: '/contact' }"
       >
         Contact
-      </b-navbar-item>
-      <b-navbar-dropdown label="Category" hoverable>
-        <b-navbar-item
-          v-for="(category, i) in categories"
-          :key="i"
-          tag="router-link"
-          :to="{
-            name: 'categories-slug',
-            params: { slug: category.fields.slug }
-          }"
-        >
-          {{ category.fields.name }}
-        </b-navbar-item>
-      </b-navbar-dropdown>
-    </template>
-    <template slot="end">
-      <b-navbar-item class="navbar-end columns" tag="div">
-        <div class="column navbar-end-items">
-          <b-field>
-            <b-input
-              placeholder="Search..."
-              type="search"
-              icon-pack="fas"
-              icon="search"
-            >
-            </b-input>
-          </b-field>
-        </div>
       </b-navbar-item>
     </template>
   </b-navbar>
@@ -71,13 +39,8 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import { mapState } from 'vuex'
 
-@Component({
-  computed: {
-    ...mapState(['categories'])
-  }
-})
+@Component({})
 export default class Navbar extends Vue {
   fixedTop: boolean = true
 }
@@ -86,6 +49,10 @@ export default class Navbar extends Vue {
 <style lang="scss" scoped>
 .navbar-container {
   padding: 6px 2rem;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
 }
 
 .navbar-end-items {

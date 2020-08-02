@@ -1,9 +1,11 @@
+import { EntryCollection } from 'contentful/index'
 import { createClient } from '~/plugins/contentful'
 const client = createClient()
 
 export const state = () => ({
   posts: [],
-  categories: []
+  categories: [],
+  series: []
 })
 
 export const getters = {
@@ -11,8 +13,8 @@ export const getters = {
     const posts = []
     // Using for is faster than filter()
     for (let i = 0; i < state.posts.length; i++) {
-      const catName = state.posts[i].fields.category.fields.name
-      if (category === catName) posts.push(state.posts[i])
+      const categoryApi = state.posts[i].fields.category.fields.name
+      if (category === categoryApi) posts.push(state.posts[i])
     }
     return posts
   }
@@ -24,9 +26,14 @@ export const mutations = {
   },
   setCategories(state: { categories: any }, payload: any) {
     state.categories = payload
+  },
+  setSeries(state: { series: any }, payload: any) {
+    state.series = payload
   }
 }
 
+// @ts-ignore
+// @ts-ignore
 export const actions = {
   // @ts-ignore
   async getPosts({ commit }) {
@@ -35,7 +42,7 @@ export const actions = {
         content_type: process.env.CTF_BLOG_POST_TYPE_ID,
         order: '-sys.createdAt'
       })
-      .then((res: any) => commit('setPosts', res.items))
+      .then((res: EntryCollection<unknown>) => commit('setPosts', res.items))
       .catch(console.error)
   },
   // @ts-ignore
@@ -45,7 +52,19 @@ export const actions = {
         content_type: 'category',
         order: 'fields.sort'
       })
-      .then((res: any) => commit('setCategories', res.items))
+      .then((res: EntryCollection<unknown>) =>
+        commit('setCategories', res.items)
+      )
+      .catch(console.error)
+  },
+  // @ts-ignore
+  async getSeries({ commit }) {
+    await client
+      .getEntries({
+        content_type: 'series',
+        order: 'fields.sort'
+      })
+      .then((res: EntryCollection<unknown>) => commit('setSeries', res.items))
       .catch(console.error)
   }
 }
