@@ -92,8 +92,9 @@ export default {
       })
       return Promise.all([
         client.getEntries({ content_type: process.env.CTF_BLOG_POST_TYPE_ID }),
-        client.getEntries({ content_type: 'category' })
-      ]).then(([posts, categories]) => {
+        client.getEntries({ content_type: 'category' }),
+        client.getEntries({ content_type: 'series' })
+      ]).then(([posts, categories, serieses]) => {
         return [
           ...posts.items.map((post: Entry<any>) => {
             return { route: `/posts/${post.fields.slug}`, payload: post }
@@ -102,6 +103,12 @@ export default {
             return {
               route: `/categories/${category.fields.slug}`,
               payload: category
+            }
+          }),
+          ...serieses.items.map((series: Entry<any>) => {
+            return {
+              route: `/series/${series.fields.slug}`,
+              payload: series
             }
           })
         ]
