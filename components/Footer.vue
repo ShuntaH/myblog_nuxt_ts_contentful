@@ -1,10 +1,10 @@
 <template>
   <footer class="footer has-background-dark">
     <div class="container">
-      <div class="content has-text-centered has-text-grey-lighter">
+      <div class="content has-text-centered has-text-grey">
         <p>
           <nuxt-link to="/">
-            <strong class="footer-title has-text-grey-lighter">AoHal</strong>
+            <strong class="footer-title has-text-grey-light">AoHal</strong>
           </nuxt-link>
           <br />
           <small>Written by</small> Evan
