@@ -49,13 +49,19 @@
 </template>
 
 <script lang="ts">
+import { Context } from '@nuxt/types'
 import { Component, Vue } from 'vue-property-decorator'
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
 import { mapGetters } from 'vuex'
 
 @Component({
   layout: 'article',
-  async asyncData({ payload, store, params, error }) {
+  computed: {
+    ...mapGetters(['relatedPosts'])
+  }
+})
+export default class Category extends Vue {
+  async asyncData({ payload, store, params, error }: Context) {
     const category =
       payload ||
       (await store.state.categories.find(
@@ -67,12 +73,8 @@ import { mapGetters } from 'vuex'
     } else {
       return error({ statusCode: 400 })
     }
-  },
-  computed: {
-    ...mapGetters(['relatedPosts'])
   }
-})
-export default class Category extends Vue {
+
   public formatDate(iso: string | number | Date) {
     const date = new Date(iso)
     const yyyy = String(date.getFullYear())
