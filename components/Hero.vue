@@ -31,6 +31,7 @@ export default class Hero extends Vue {}
 .hero-animation {
   animation-name: fade-animation;
   animation-duration: 1.5s;
+  animation-delay: 2.1s;
 }
 
 @keyframes fade-animation {
