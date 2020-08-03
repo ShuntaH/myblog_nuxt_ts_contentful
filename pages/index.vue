@@ -59,7 +59,7 @@ import LoadingPage from '~/components/LoadingPage.vue'
 export default class extends Vue {
   created() {
     this.$store.commit('setLoading', true)
-    setTimeout(() => this.$store.commit('setLoading', false), 3000)
+    setTimeout(() => this.$store.commit('setLoading', false), 2000)
   }
 
   public formatDate(iso: string | number | Date) {
