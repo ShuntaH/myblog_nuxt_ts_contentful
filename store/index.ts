@@ -3,6 +3,7 @@ import { createClient } from '~/plugins/contentful'
 const client = createClient()
 
 export const state = () => ({
+  loading: false, // ローディング中を表すストア
   posts: [],
   categories: [],
   series: []
@@ -21,6 +22,9 @@ export const getters = {
 }
 
 export const mutations = {
+  setLoading(state: { loading: boolean }, payload: any) {
+    state.loading = payload
+  },
   setPosts(state: { posts: any }, payload: any) {
     state.posts = payload
   },
