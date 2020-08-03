@@ -1,5 +1,5 @@
 <template>
-  <div v-if="loading" class="loading-container">
+  <div v-show="$store.state.loading" class="loading-container">
     <div class="loading">
       <span class="title">LOADING</span>
       <span class="circle1"></span>
@@ -16,6 +16,7 @@ import { Component, Vue } from 'nuxt-property-decorator'
   layout: 'nothing'
 })
 export default class extends Vue {
+  // loadingをnuxt.config.tsで指定している場合
   loading = false
 
   public start() {

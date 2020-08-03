@@ -1,5 +1,6 @@
 <template>
   <div>
+    <LoadingPage></LoadingPage>
     <h2 class="animated__fadeInLeft">SERIES</h2>
     <div class="columns is-mobile is-multiline">
       <!--topページの最新記事を表示-->
@@ -41,24 +42,24 @@
 </template>
 
 <script lang="ts">
+// import { Context } from '@nuxt/types'
 import { Component, Vue } from 'nuxt-property-decorator'
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
 import { mapState } from 'vuex'
+import LoadingPage from '~/components/LoadingPage.vue'
 
 @Component({
-  components: {},
+  components: { LoadingPage },
   computed: {
     ...mapState(['series'])
   },
-  layout: 'default'
+  layout: 'default',
+  loading: true
 })
 export default class extends Vue {
-  mounted() {
-    this.$nextTick(() => {
-      this.$nuxt.$loading.start()
-
-      setTimeout(() => this.$nuxt.$loading.finish(), 1500)
-    })
+  created() {
+    this.$store.commit('setLoading', true)
+    setTimeout(() => this.$store.commit('setLoading', false), 3000)
   }
 
   public formatDate(iso: string | number | Date) {
