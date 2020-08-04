@@ -1,11 +1,11 @@
 <template>
-  <section class="hero is-medium is-dark is-bold">
+  <section class="hero is-dark is-fullheight-with-navbar">
     <div class="hero-body">
       <div class="container">
-        <h2 class="title is-size-4 hero-animation">
+        <h2 class="title is-size-4 has-text-centered hero-animation">
           日本の大学生とタイの女の子の恋の回顧録
         </h2>
-        <p class="subtitle is-size-6">
+        <p class="subtitle is-size-6 has-text-centered">
           From 2018 to 2020
         </p>
       </div>
