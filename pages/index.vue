@@ -57,10 +57,10 @@ import LoadingPage from '~/components/LoadingPage.vue'
   loading: true
 })
 export default class extends Vue {
-  // created() {
-  //   this.$store.commit('setLoading', true)
-  //   setTimeout(() => this.$store.commit('setLoading', false), 2000)
-  // }
+  created() {
+    this.$store.commit('setLoading', true)
+    setTimeout(() => this.$store.commit('setLoading', false), 2000)
+  }
 
   public formatDate(iso: string | number | Date) {
     const date = new Date(iso)
@@ -108,10 +108,6 @@ export default class extends Vue {
   to {
     transform: translateX(0%);
   }
-}
-
-.right-to-left {
-  transform: translateX(200px);
 }
 
 @media screen and (max-width: 639px) {
