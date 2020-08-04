@@ -1,7 +1,7 @@
 <template>
   <div>
     <LoadingPage></LoadingPage>
-    <h2 class="animated__fadeInLeft">SERIES</h2>
+    <h2 class="right-to-left-animation has-text-centered">SERIES</h2>
     <div class="columns is-mobile is-multiline">
       <!--topページの最新記事を表示-->
       <!--        <time>-->
@@ -93,6 +93,21 @@ export default class extends Vue {
 
 .content {
   height: 260px;
+}
+.right-to-left-animation {
+  animation-name: left-to-right;
+  animation-duration: 1.5s;
+  animation-delay: 2.1s;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes left-to-right {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
 }
 
 @media screen and (max-width: 639px) {

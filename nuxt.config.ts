@@ -36,11 +36,7 @@ export default {
   /*
    ** Global CSS
    */
-  css: [
-    '~/assets/css/buefy.scss',
-    '~/assets/css/global.scss',
-    'animate.css/animate.min.css'
-  ],
+  css: ['~/assets/css/buefy.scss', '~/assets/css/global.scss'],
   /*
    ** Plugins to load before mounting the App
    */
