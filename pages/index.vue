@@ -1,7 +1,7 @@
 <template>
   <div>
     <LoadingPage></LoadingPage>
-    <h2 class="animated__fadeInLeft">SERIES</h2>
+    <h2 class="right-to-left-animation has-text-centered">SERIES</h2>
     <div class="columns is-mobile is-multiline">
       <!--topページの最新記事を表示-->
       <!--        <time>-->
@@ -57,10 +57,10 @@ import LoadingPage from '~/components/LoadingPage.vue'
   loading: true
 })
 export default class extends Vue {
-  created() {
-    this.$store.commit('setLoading', true)
-    setTimeout(() => this.$store.commit('setLoading', false), 2000)
-  }
+  // created() {
+  //   this.$store.commit('setLoading', true)
+  //   setTimeout(() => this.$store.commit('setLoading', false), 2000)
+  // }
 
   public formatDate(iso: string | number | Date) {
     const date = new Date(iso)
@@ -93,6 +93,25 @@ export default class extends Vue {
 
 .content {
   height: 260px;
+}
+.right-to-left-animation {
+  animation-name: left-to-right;
+  animation-duration: 1.5s;
+  animation-delay: 2.1s;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes left-to-right {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+.right-to-left {
+  transform: translateX(200px);
 }
 
 @media screen and (max-width: 639px) {
