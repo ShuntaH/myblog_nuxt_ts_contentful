@@ -1,7 +1,17 @@
 <template>
   <div>
     <LoadingPage></LoadingPage>
-    <h2 class="animated__fadeInLeft">SERIES</h2>
+    <p style="display: none">{{ positionY }}</p>
+    <h3
+      class="
+     has-text-centered is-size-3 is-size-4-mobile my-4 has-text-weight-semibold"
+      :class="{
+        'left-to-right-animation': isAnimated,
+        'initial-no-display': isDisplayed
+      }"
+    >
+      SERIES
+    </h3>
     <div class="columns is-mobile is-multiline">
       <!--topページの最新記事を表示-->
       <!--        <time>-->
@@ -32,7 +42,7 @@
           </div>
           <div class="content px-3 py-3">
             <p class="is-size-7 has-text-weight-semibold">SERIES{{ i + 1 }}</p>
-            <h3 class="is-size-5 mx-0 my-0">{{ post.fields.name }}</h3>
+            <h4 class="is-size-5 mx-0 my-0">{{ post.fields.name }}</h4>
           </div>
           <!--      </nuxt-link>-->
         </div>
@@ -57,9 +67,30 @@ import LoadingPage from '~/components/LoadingPage.vue'
   loading: true
 })
 export default class extends Vue {
+  public positionY: number = 0
+  public isAnimated: boolean = false
+  public isDisplayed: boolean = true
+
   created() {
     this.$store.commit('setLoading', true)
     setTimeout(() => this.$store.commit('setLoading', false), 2000)
+  }
+
+  mounted() {
+    this.positionY = 0
+    window.addEventListener('scroll', this.handleScroll)
+  }
+
+  updated() {
+    if (this.positionY > 200) {
+      this.isAnimated = true
+      this.isDisplayed = false
+      window.removeEventListener('scroll', this.handleScroll)
+    }
+  }
+
+  public handleScroll() {
+    this.positionY = window.scrollY
   }
 
   public formatDate(iso: string | number | Date) {
@@ -93,6 +124,33 @@ export default class extends Vue {
 
 .content {
   height: 260px;
+}
+/*.left-to-right-enter-active {*/
+/*  animation-name: left-to-right;*/
+/*  animation-duration: 1.5s;*/
+/*  !*animation-delay: 2.1s;*!*/
+/*  animation-timing-function: ease-in-out;*/
+/*}*/
+.left-to-right-animation {
+  animation-name: left-to-right;
+  animation-duration: 1.5s;
+  /*animation-delay: 2.1s;*/
+  animation-timing-function: ease-in-out;
+}
+
+.initial-no-display {
+  opacity: 0;
+}
+
+@keyframes left-to-right {
+  from {
+    transform: translateX(-100%);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(0%);
+    opacity: 1;
+  }
 }
 
 @media screen and (max-width: 639px) {
