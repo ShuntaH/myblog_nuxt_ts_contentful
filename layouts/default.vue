@@ -2,7 +2,7 @@
   <div class="has-background-white-bis">
     <Navbar />
     <Hero />
-    <div class="main-wrapper">
+    <div class="wrapper">
       <nuxt />
     </div>
     <Footer></Footer>
@@ -80,24 +80,25 @@ html {
 
 @media screen and (max-width: 639px) {
   /*スマホ用のcssを記述*/
-  .main-wrapper {
-    padding: 20px 30px;
+  .wrapper {
+    min-width: 300px;
+    max-width: 580px;
     margin: 0 auto;
   }
 }
 
 @media only screen and (min-width: 640px) and (max-width: 1023px) {
   /*tablet用のcssを記述*/
-  .main-wrapper {
-    padding: 60px 40px;
+  .wrapper {
+    width: 500px;
     margin: 0 auto;
   }
 }
 
 @media screen and (min-width: 1024px) {
   /*pc用のcssを記述*/
-  .main-wrapper {
-    padding: 40px 80px;
+  .wrapper {
+    width: 800px;
     margin: 0 auto;
   }
 }

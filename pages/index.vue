@@ -42,8 +42,12 @@
             </figure>
           </div>
           <div class="content px-3 py-3">
-            <p class="is-size-7 has-text-weight-semibold">SERIES{{ i + 1 }}</p>
-            <h4 class="is-size-5 mx-0 my-0">{{ post.fields.name }}</h4>
+            <p class="is-size-7 has-text-centered has-text-weight-semibold">
+              SERIES{{ i + 1 }}
+            </p>
+            <h4 class="is-size-5 has-text-centered mx-0 my-0">
+              {{ post.fields.name }}
+            </h4>
           </div>
           <!--      </nuxt-link>-->
         </div>
@@ -119,19 +123,24 @@ export default class extends Vue {
   letter-spacing: 1px;
 }
 
-.card-img:hover {
-  opacity: 0.8;
+.card {
+  border-radius: 10px;
+  width: 220px;
+}
+
+.card-img {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  object-fit: cover;
+  &:hover {
+    opacity: 0.8;
+  }
 }
 
 .content {
-  height: 260px;
+  height: 120px;
 }
-/*.left-to-right-enter-active {*/
-/*  animation-name: left-to-right;*/
-/*  animation-duration: 1.5s;*/
-/*  !*animation-delay: 2.1s;*!*/
-/*  animation-timing-function: ease-in-out;*/
-/*}*/
+
 .left-to-right-animation {
   animation-name: left-to-right;
   animation-duration: 1.5s;

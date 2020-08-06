@@ -7,10 +7,6 @@
             <strong class="footer-title has-text-grey-light">AoHal</strong>
           </nuxt-link>
           <br />
-          <small>Written by</small> Evan
-          <small>|</small>
-          <small>Developed by</small> Alex
-          <br />
           <small
             >Powered by
             <strong><a href="https://nuxtjs.org/">Nuxt.js</a></strong> with
