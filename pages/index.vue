@@ -8,7 +8,7 @@
      has-text-centered is-size-3 is-size-4-mobile my-4 has-text-weight-semibold"
       :class="{
         'left-to-right-animation': isAnimated,
-        'initial-no-display': isDisplayed
+        'initial-no-display': notDisplayed
       }"
     >
       SERIES
@@ -70,7 +70,7 @@ import LoadingPage from '~/components/LoadingPage.vue'
 export default class extends Vue {
   public positionY: number = 0
   public isAnimated: boolean = false
-  public isDisplayed: boolean = true
+  public notDisplayed: boolean = true
 
   created() {
     this.$store.commit('setLoading', true)
@@ -85,7 +85,7 @@ export default class extends Vue {
   updated() {
     if (this.positionY > 200) {
       this.isAnimated = true
-      this.isDisplayed = false
+      this.notDisplayed = false
       window.removeEventListener('scroll', this.handleScroll)
     }
   }
