@@ -1,6 +1,7 @@
 <template>
   <div>
     <LoadingPage></LoadingPage>
+    <!--なぜかpostionYを書かないとseriesのテキストのアニメーションが起動しない-->
     <p style="display: none">{{ positionY }}</p>
     <h3
       class="
