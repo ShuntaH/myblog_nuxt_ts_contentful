@@ -118,6 +118,9 @@ export default class extends Vue {
   margin-top: 60px;
 }
 
+div.columns {
+  margin-bottom: 60px;
+}
 .card {
   width: 240px;
 }
@@ -156,15 +159,19 @@ export default class extends Vue {
   }
 }
 
-@media screen and (max-width: 419px) {
-  /*スマホ用のcssを記述*/
+@include pc() {
 }
 
-@media only screen and (min-width: 420px) and (max-width: 1023px) {
-  /*tablet用のcssを記述*/
+@include tablet() {
 }
 
-@media screen and (min-width: 1024px) {
-  /*pc用のcssを記述*/
+@include sp() {
+  .card {
+    width: 300px;
+    margin: 0 auto;
+  }
+  .content {
+    height: 80px;
+  }
 }
 </style>
