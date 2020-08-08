@@ -78,27 +78,25 @@ html {
   background-color: #35495e;
 }
 
-@media screen and (max-width: 639px) {
-  /*スマホ用のcssを記述*/
+@include pc() {
   .wrapper {
-    min-width: 300px;
-    max-width: 580px;
+    width: 900px;
     margin: 0 auto;
   }
 }
 
-@media only screen and (min-width: 640px) and (max-width: 1023px) {
-  /*tablet用のcssを記述*/
+@include tablet() {
   .wrapper {
-    width: 500px;
+    width: 70%;
+    max-width: 900px;
     margin: 0 auto;
   }
 }
 
-@media screen and (min-width: 1024px) {
-  /*pc用のcssを記述*/
+@include sp() {
   .wrapper {
-    width: 800px;
+    width: 90%;
+    max-width: 410px;
     margin: 0 auto;
   }
 }

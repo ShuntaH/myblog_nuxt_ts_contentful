@@ -4,8 +4,7 @@
     <!--なぜかpostionYを書かないとseriesのテキストのアニメーションが起動しない-->
     <p style="display: none">{{ positionY }}</p>
     <h3
-      class="
-     has-text-centered is-size-3 is-size-4-mobile my-4 has-text-weight-semibold"
+      class="heading has-text-centered is-size-3 is-size-4-mobile py-4 has-text-weight-semibold"
       :class="{
         'left-to-right-animation': isAnimated,
         'initial-no-display': notDisplayed
@@ -25,7 +24,7 @@
         :key="i"
         class="column is-3-desktop is-6-tablet is-12-mobile"
       >
-        <div class="card">
+        <div class="card is-shadowless">
           <!--      <nuxt-link-->
           <!--        :to="{ name: 'posts-slug', params: { slug: post.fields.slug } }"-->
           <!--      >-->
@@ -41,11 +40,13 @@
               <!--          </b-tag>-->
             </figure>
           </div>
-          <div class="content px-3 py-3">
-            <p class="is-size-7 has-text-centered has-text-weight-semibold">
+          <div class="content has-background-white-bis px-3 py-3">
+            <p
+              class="is-size-7 has-text-centered has-text-weight-semibold mb-1"
+            >
               SERIES{{ i + 1 }}
             </p>
-            <h4 class="is-size-5 has-text-centered mx-0 my-0">
+            <h4 class="is-size-6 has-text-centered">
               {{ post.fields.name }}
             </h4>
           </div>
@@ -113,25 +114,17 @@ export default class extends Vue {
 </script>
 
 <style lang="scss" scoped>
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
+.heading {
+  margin-top: 60px;
 }
 
 .card {
-  border-radius: 10px;
-  width: 220px;
+  width: 240px;
 }
 
 .card-img {
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
   object-fit: cover;
+
   &:hover {
     opacity: 0.8;
   }
@@ -163,27 +156,15 @@ export default class extends Vue {
   }
 }
 
-@media screen and (max-width: 639px) {
+@media screen and (max-width: 419px) {
   /*スマホ用のcssを記述*/
-  .pagination-wrapper {
-    padding: 20px 30px;
-    margin: 0 auto;
-  }
 }
 
-@media only screen and (min-width: 640px) and (max-width: 1023px) {
+@media only screen and (min-width: 420px) and (max-width: 1023px) {
   /*tablet用のcssを記述*/
-  .pagination-wrapper {
-    padding: 30px 40px;
-    margin: 0 auto;
-  }
 }
 
 @media screen and (min-width: 1024px) {
   /*pc用のcssを記述*/
-  .pagination-wrapper {
-    padding: 30px 200px;
-    margin: 0 auto;
-  }
 }
 </style>

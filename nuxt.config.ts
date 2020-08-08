@@ -60,7 +60,8 @@ export default {
     '@nuxtjs/dotenv',
     '@nuxtjs/markdownit',
     'nuxt-fontawesome',
-    '@nuxtjs/sitemap'
+    '@nuxtjs/sitemap',
+    '@nuxtjs/style-resources'
   ],
   /*
    ** FontAwesome
@@ -137,5 +138,8 @@ export default {
     hostname: 'https://ambiguous-memo.netlify.app/',
     cacheTime: 12 * 3600,
     generate: true
+  },
+  styleResources: {
+    scss: ['~/assets/css/_variables.scss']
   }
 }
