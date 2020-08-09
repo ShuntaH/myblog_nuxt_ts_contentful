@@ -26,12 +26,16 @@ $link: $primary;
 $link-invert: $primary-invert;
 $link-focus-border: $primary;
 
+// set break points
+$tablet: 420px;
+$desktop: 1024px;
+
 // Import Bulma and Buefy styles
 @import "~bulma";
 @import "~buefy/src/scss/buefy";
 
 .radio,
-.switch{
+.switch {
   .check:before {
     display: block;
   }

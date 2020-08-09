@@ -1,23 +1,28 @@
-import { EntryCollection } from 'contentful/index'
+import { Entry, EntryCollection } from 'contentful/index'
 import { createClient } from '~/plugins/contentful'
 const client = createClient()
 
 export const state = () => ({
-  loading: false, // ローディング中を表すストア
+  loading: false, // ローディング中を表すstate
   posts: [],
   categories: [],
   series: []
 })
 
 export const getters = {
-  relatedPosts: (state: any) => (category: any) => {
-    const posts = []
+  categoryRelatedPosts: (state: any) => (category: string) => {
+    const posts: Entry<any>[] = []
     // Using for is faster than filter()
     for (let i = 0; i < state.posts.length; i++) {
-      const categoryApi = state.posts[i].fields.category.fields.name
-      if (category === categoryApi) posts.push(state.posts[i])
+      const categoryStored = state.posts[i].fields.category.fields.name
+      if (category === categoryStored) posts.push(state.posts[i])
     }
     return posts
+  },
+  seriesRelatedPosts: (state: any) => (series: string) => {
+    return state.posts.filter(
+      (post: any) => post.fields.series.fields.name === series
+    )
   }
 }
 
@@ -25,13 +30,13 @@ export const mutations = {
   setLoading(state: { loading: boolean }, payload: any) {
     state.loading = payload
   },
-  setPosts(state: { posts: any }, payload: any) {
+  setPosts(state: { posts: EntryCollection<any>[] }, payload: any) {
     state.posts = payload
   },
-  setCategories(state: { categories: any }, payload: any) {
+  setCategories(state: { categories: EntryCollection<any>[] }, payload: any) {
     state.categories = payload
   },
-  setSeries(state: { series: any }, payload: any) {
+  setSeries(state: { series: EntryCollection<any>[] }, payload: any) {
     state.series = payload
   }
 }

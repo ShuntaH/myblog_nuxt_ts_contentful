@@ -1,0 +1,20 @@
+@mixin pc {
+  @media screen and (min-width: 1024px) {
+    /*pc用のcssを記述*/
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (min-width: 420px) and (max-width: 1023px) {
+    /*tablet用のcssを記述*/
+    @content
+  }
+}
+
+@mixin sp {
+  @media screen and (max-width: 419px) {
+    /*tablet用のcssを記述*/
+    @content
+  }
+}

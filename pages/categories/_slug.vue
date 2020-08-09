@@ -2,7 +2,7 @@
   <div>
     <h2 class="subtitle">{{ category.fields.name }}</h2>
     <div
-      v-for="(post, i) in relatedPosts(category.fields.name)"
+      v-for="(post, i) in categoryRelatedPosts(category.fields.name)"
       :key="i"
       class="post-card has-background-white-ter"
     >
@@ -53,11 +53,12 @@ import { Context } from '@nuxt/types'
 import { Component, Vue } from 'vue-property-decorator'
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
 import { mapGetters } from 'vuex'
+import { Entry } from 'contentful/index'
 
 @Component({
   layout: 'article',
   computed: {
-    ...mapGetters(['relatedPosts'])
+    ...mapGetters(['categoryRelatedPosts'])
   }
 })
 export default class Category extends Vue {
@@ -65,14 +66,11 @@ export default class Category extends Vue {
     const category =
       payload ||
       (await store.state.categories.find(
-        (cat: any) => cat.fields.slug === params.slug
+        (category: Entry<any>) => category.fields.slug === params.slug
       ))
 
-    if (category) {
-      return { category }
-    } else {
-      return error({ statusCode: 400 })
-    }
+    if (!category) error({ statusCode: 400 })
+    return { category }
   }
 
   public formatDate(iso: string | number | Date) {
@@ -81,10 +79,6 @@ export default class Category extends Vue {
     const mm = String(date.getMonth() + 1).padStart(2, '0')
     const dd = String(date.getDate()).padStart(2, '0')
     return `${yyyy}.${mm}.${dd}`
-  }
-
-  public truncate(str: string, len: number) {
-    return str.length <= len ? str : str.substr(0, len) + '...'
   }
 
   public toHtmlString(obj: any) {
