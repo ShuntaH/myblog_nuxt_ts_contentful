@@ -37,6 +37,7 @@
     "@nuxt/typescript-build": "^0.5.8",
     "@nuxtjs/eslint-config-typescript": "^1.0.2",
     "@nuxtjs/eslint-module": "^1.2.0",
+    "@nuxtjs/style-resources": "^1.0.0",
     "@types/highlight.js": "^9.12.4",
     "@types/marked": "^0.7.4",
     "babel-eslint": "^10.1.0",
