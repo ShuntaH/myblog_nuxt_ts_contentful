@@ -20,38 +20,39 @@
       <!--          </small>-->
       <!--        </time>-->
       <div
-        v-for="(post, i) in series"
+        v-for="(aSeries, i) in series"
         :key="i"
         class="column is-3-desktop is-6-tablet is-12-mobile"
       >
-        <div class="card is-shadowless">
-          <!--      <nuxt-link-->
-          <!--        :to="{ name: 'posts-slug', params: { slug: post.fields.slug } }"-->
-          <!--      >-->
-          <div class="card-image">
-            <figure class="image is-4by3">
-              <img
-                :src="post.fields.thumbnail.fields.file.url"
-                :alt="post.fields.name"
-                class="card-img"
-              />
-              <!--          <b-tag class="post-card-category" rounded>-->
-              <!--            {{ post.fields.category.fields.name }}-->
-              <!--          </b-tag>-->
-            </figure>
+        <nuxt-link
+          tag="div"
+          :to="{ name: 'series-slug', params: { slug: aSeries.fields.slug } }"
+        >
+          <div class="card is-shadowless">
+            <div class="card-image">
+              <figure class="image is-4by3">
+                <img
+                  :src="aSeries.fields.thumbnail.fields.file.url"
+                  :alt="aSeries.fields.name"
+                  class="card-img"
+                />
+                <!--          <b-tag class="aSeries-card-category" rounded>-->
+                <!--            {{ aSeries.fields.category.fields.name }}-->
+                <!--          </b-tag>-->
+              </figure>
+            </div>
+            <div class="content has-background-white-bis px-3 py-3">
+              <p
+                class="is-size-7 has-text-centered has-text-weight-semibold mb-1"
+              >
+                SERIES{{ i + 1 }}
+              </p>
+              <h4 class="is-size-6 has-text-centered">
+                {{ aSeries.fields.name }}
+              </h4>
+            </div>
           </div>
-          <div class="content has-background-white-bis px-3 py-3">
-            <p
-              class="is-size-7 has-text-centered has-text-weight-semibold mb-1"
-            >
-              SERIES{{ i + 1 }}
-            </p>
-            <h4 class="is-size-6 has-text-centered">
-              {{ post.fields.name }}
-            </h4>
-          </div>
-          <!--      </nuxt-link>-->
-        </div>
+        </nuxt-link>
       </div>
     </div>
   </div>

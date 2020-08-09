@@ -1,6 +1,5 @@
-// eslint-disable-next-line import/named,@typescript-eslint/no-unused-vars
-import { ContentfulClientApi, Entry } from 'contentful'
-const contentful = require('contentful')
+import { ContentfulClientApi, Entry } from 'contentful/index'
+const contentful = require('contentful/')
 require('dotenv').config()
 
 export default {
