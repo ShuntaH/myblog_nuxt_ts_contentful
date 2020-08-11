@@ -1,12 +1,18 @@
 <template>
   <section class="hero is-dark is-fullheight-with-navbar">
-    <div class="hero-body">
+    <div
+      :style="{ backgroundImage: `url(${heroBackgroundImgUrl})` }"
+      class="hero-body"
+    >
       <div class="container">
-        <h2 class="title is-size-4 has-text-centered hero-animation">
-          日本の大学生とタイの女の子の恋の回顧録
+        <h2
+          class="title is-size-4 has-text-centered hero-animation"
+          :class="heroTitleColor"
+        >
+          {{ heroTitle }}
         </h2>
-        <p class="subtitle is-size-6 has-text-centered">
-          From 2018 to 2020
+        <p class="subtitle is-size-6 has-text-centered" :class="heroTitleColor">
+          {{ heroSubtitle }}
         </p>
       </div>
     </div>
@@ -14,18 +20,34 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'nuxt-property-decorator'
+import { Component, Prop, Vue } from 'nuxt-property-decorator'
 
 @Component({})
-export default class Hero extends Vue {}
+export default class Hero extends Vue {
+  @Prop()
+  heroTitle!: string
+
+  @Prop()
+  heroSubtitle?: string
+
+  @Prop()
+  heroTitleColor?: string
+
+  @Prop()
+  heroBackgroundImgUrl!: string
+}
 </script>
 
 <style lang="scss" scoped>
 .hero-body {
-  background-image: url('~assets/images/hero/artbox_pc.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   opacity: 0.8;
+
+  .hero-title {
+  }
+  .hero-title-description {
+  }
 }
 
 .hero-animation {
