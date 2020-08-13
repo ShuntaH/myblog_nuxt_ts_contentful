@@ -21,7 +21,7 @@ export const getters = {
   },
   seriesRelatedPosts: (state: any) => (series: string) => {
     return state.posts.filter(
-      (post: any) => post.fields.series.fields.name === series
+      (post: Entry<any>) => post.fields.series.fields.name === series
     )
   }
 }
@@ -30,13 +30,13 @@ export const mutations = {
   setLoading(state: { loading: boolean }, payload: any) {
     state.loading = payload
   },
-  setPosts(state: { posts: EntryCollection<any>[] }, payload: any) {
+  setPosts(state: { posts: EntryCollection<any> }, payload: any) {
     state.posts = payload
   },
-  setCategories(state: { categories: EntryCollection<any>[] }, payload: any) {
+  setCategories(state: { categories: EntryCollection<any> }, payload: any) {
     state.categories = payload
   },
-  setSeries(state: { series: EntryCollection<any>[] }, payload: any) {
+  setSeries(state: { series: EntryCollection<any> }, payload: any) {
     state.series = payload
   }
 }

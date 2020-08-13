@@ -1,27 +1,34 @@
 <template>
   <div>
+    <Hero
+      :hero-title="this.series.fields.name"
+      hero-subtitle="From 2018 to 2020"
+      hero-title-color="has-text-dark"
+      :hero-background-img-url="this.series.fields.thumbnail.fields.file.url"
+    />
     <h3
       class="has-text-centered is-size-3 is-size-4-mobile py-4 has-text-weight-semibold"
     >
-      {{ series.fields.name }}
+      {{ this.series.fields.name }}
     </h3>
-    <ul
+    <div
       v-for="(post, i) in seriesRelatedPosts(this.series.fields.name)"
       :key="i"
     >
-      <li>{{ post.fields.title }}</li>
-    </ul>
-    {{ series.fields.name }}
+      <h4>{{ post.fields.title }}</h4>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import { Context } from '@nuxt/types'
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue } from 'nuxt-property-decorator'
 import { mapGetters } from 'vuex'
 import { Entry } from 'contentful/index'
+import Hero from '~/components/Hero.vue'
 
 @Component({
+  components: { Hero },
   layout: 'default',
   computed: {
     ...mapGetters(['seriesRelatedPosts'])

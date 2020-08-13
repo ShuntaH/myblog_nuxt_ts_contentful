@@ -1,58 +1,65 @@
 <template>
   <div>
-    <LoadingPage></LoadingPage>
-    <!--なぜかpostionYを書かないとseriesのテキストのアニメーションが起動しない-->
-    <p style="display: none">{{ positionY }}</p>
-    <h3
-      class="heading has-text-centered is-size-3 is-size-4-mobile py-4 has-text-weight-semibold"
-      :class="{
-        'left-to-right-animation': isAnimated,
-        'initial-no-display': notDisplayed
-      }"
-    >
-      SERIES
-    </h3>
-    <div class="columns is-mobile is-multiline">
-      <!--topページの最新記事を表示-->
-      <!--        <time>-->
-      <!--          <small class="has-text-grey">-->
-      <!--            {{ formatDate(post.sys.createdAt) }}-->
-      <!--          </small>-->
-      <!--        </time>-->
-      <div
-        v-for="(aSeries, i) in series"
-        :key="i"
-        class="column is-3-desktop is-6-tablet is-12-mobile"
+    <Hero
+      hero-title="日本の大学生とタイの女の子の恋の回顧録"
+      hero-subtitle="From 2018 to 2020"
+      hero-title-color="has-text-white"
+      :hero-background-img-url="heroBackgroundImgUrl"
+    />
+    <div class="wrapper">
+      <!--なぜかpostionYを書かないとseriesのテキストのアニメーションが起動しない-->
+      <p style="display: none">{{ positionY }}</p>
+      <h3
+        class="heading has-text-centered is-size-3 is-size-4-mobile py-4 has-text-weight-semibold"
+        :class="{
+          'left-to-right-animation': isAnimated,
+          'initial-no-display': notDisplayed
+        }"
       >
-        <nuxt-link
-          tag="div"
-          :to="{ name: 'series-slug', params: { slug: aSeries.fields.slug } }"
+        SERIES
+      </h3>
+      <div class="columns is-mobile is-multiline">
+        <!--topページの最新記事を表示-->
+        <!--        <time>-->
+        <!--          <small class="has-text-grey">-->
+        <!--            {{ formatDate(post.sys.createdAt) }}-->
+        <!--          </small>-->
+        <!--        </time>-->
+        <div
+          v-for="(aSeries, i) in series"
+          :key="i"
+          class="column is-3-desktop is-6-tablet is-12-mobile"
         >
-          <div class="card is-shadowless">
-            <div class="card-image">
-              <figure class="image is-4by3">
-                <img
-                  :src="aSeries.fields.thumbnail.fields.file.url"
-                  :alt="aSeries.fields.name"
-                  class="card-img"
-                />
-                <!--          <b-tag class="aSeries-card-category" rounded>-->
-                <!--            {{ aSeries.fields.category.fields.name }}-->
-                <!--          </b-tag>-->
-              </figure>
+          <nuxt-link
+            tag="div"
+            :to="{ name: 'series-slug', params: { slug: aSeries.fields.slug } }"
+          >
+            <div class="card is-shadowless">
+              <div class="card-image">
+                <figure class="image is-4by3">
+                  <img
+                    :src="aSeries.fields.thumbnail.fields.file.url"
+                    :alt="aSeries.fields.name"
+                    class="card-img"
+                  />
+                  <!--          <b-tag class="aSeries-card-category" rounded>-->
+                  <!--            {{ aSeries.fields.category.fields.name }}-->
+                  <!--          </b-tag>-->
+                </figure>
+              </div>
+              <div class="content has-background-white-bis px-3 py-3">
+                <p
+                  class="is-size-7 has-text-centered has-text-weight-semibold mb-1"
+                >
+                  SERIES{{ i + 1 }}
+                </p>
+                <h4 class="is-size-6 has-text-centered">
+                  {{ aSeries.fields.name }}
+                </h4>
+              </div>
             </div>
-            <div class="content has-background-white-bis px-3 py-3">
-              <p
-                class="is-size-7 has-text-centered has-text-weight-semibold mb-1"
-              >
-                SERIES{{ i + 1 }}
-              </p>
-              <h4 class="is-size-6 has-text-centered">
-                {{ aSeries.fields.name }}
-              </h4>
-            </div>
-          </div>
-        </nuxt-link>
+          </nuxt-link>
+        </div>
       </div>
     </div>
   </div>
@@ -63,25 +70,27 @@
 import { Component, Vue } from 'nuxt-property-decorator'
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
 import { mapState } from 'vuex'
+// 読み込めているがts-lintでエラーが消えない
+// @ts-ignore
+import heroBackgroundImgUrl from '~/assets/images/hero/artbox_pc.jpg'
 import LoadingPage from '~/components/LoadingPage.vue'
+import Hero from '~/components/Hero.vue'
 
 @Component({
-  components: { LoadingPage },
+  components: { LoadingPage, Hero },
   computed: {
     ...mapState(['series'])
   },
-  layout: 'default',
-  loading: true
+  layout: 'default'
 })
 export default class extends Vue {
+  // variables for animation of page substitle
   public positionY: number = 0
   public isAnimated: boolean = false
   public notDisplayed: boolean = true
 
-  created() {
-    this.$store.commit('setLoading', true)
-    setTimeout(() => this.$store.commit('setLoading', false), 2000)
-  }
+  // hero img
+  heroBackgroundImgUrl = heroBackgroundImgUrl
 
   mounted() {
     this.positionY = 0
@@ -124,20 +133,17 @@ div.columns {
 }
 .card {
   width: 240px;
-}
+  .card-img {
+    object-fit: cover;
 
-.card-img {
-  object-fit: cover;
-
-  &:hover {
-    opacity: 0.8;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+  .content {
+    height: 120px;
   }
 }
-
-.content {
-  height: 120px;
-}
-
 .left-to-right-animation {
   animation-name: left-to-right;
   animation-duration: 1.5s;
@@ -161,18 +167,32 @@ div.columns {
 }
 
 @include pc() {
+  .wrapper {
+    width: 900px;
+    margin: 0 auto;
+  }
 }
 
 @include tablet() {
+  .wrapper {
+    width: 70%;
+    max-width: 900px;
+    margin: 0 auto;
+  }
 }
 
 @include sp() {
+  .wrapper {
+    width: 90%;
+    max-width: 410px;
+    margin: 0 auto;
+  }
   .card {
     width: 300px;
     margin: 0 auto;
-  }
-  .content {
-    height: 80px;
+    .content {
+      height: 80px;
+    }
   }
 }
 </style>
