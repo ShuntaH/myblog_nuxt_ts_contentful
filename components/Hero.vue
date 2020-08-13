@@ -42,7 +42,17 @@ export default class Hero extends Vue {
 .hero-body {
   background-repeat: no-repeat;
   background-size: cover;
-  opacity: 0.8;
+  position: relative;
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    opacity: 0.4;
+  }
 
   .hero-title {
   }
