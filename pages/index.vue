@@ -10,7 +10,7 @@
       <!--なぜかpostionYを書かないとseriesのテキストのアニメーションが起動しない-->
       <p style="display: none">{{ positionY }}</p>
       <h3
-        class="heading has-text-centered is-size-3 is-size-4-mobile py-4 has-text-weight-semibold"
+        class="has-text-centered is-size-3 is-size-4-mobile py-4 mt-5 has-text-weight-semibold"
         :class="{
           'left-to-right-animation': isAnimated,
           'initial-no-display': notDisplayed
@@ -49,11 +49,13 @@
               </div>
               <div class="content has-background-white-bis px-3 py-3">
                 <p
-                  class="is-size-7 has-text-centered has-text-weight-semibold mb-1"
+                  class="is-size-7 has-text-centered has-text-weight-medium mb-1"
                 >
                   SERIES{{ i + 1 }}
                 </p>
-                <h4 class="is-size-6 has-text-centered">
+                <h4
+                  class="is-size-6 has-text-weight-semibold has-text-centered"
+                >
                   {{ aSeries.fields.name }}
                 </h4>
               </div>
@@ -124,10 +126,6 @@ export default class extends Vue {
 </script>
 
 <style lang="scss" scoped>
-.heading {
-  margin-top: 60px;
-}
-
 div.columns {
   margin-bottom: 60px;
 }
