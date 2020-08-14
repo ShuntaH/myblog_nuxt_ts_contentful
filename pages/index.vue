@@ -10,7 +10,7 @@
       <!--なぜかpostionYを書かないとseriesのテキストのアニメーションが起動しない-->
       <p style="display: none">{{ positionY }}</p>
       <h3
-        class="has-text-centered is-size-3 is-size-4-mobile py-4 mt-5 has-text-weight-semibold"
+        class="has-text-centered is-size-3 is-size-4-mobile has-text-weight-semibold section-title"
         :class="{
           'left-to-right-animation': isAnimated,
           'initial-no-display': notDisplayed
@@ -28,15 +28,14 @@
         <div
           v-for="(aSeries, i) in series"
           :key="i"
-          class="column is-3-desktop is-6-tablet is-12-mobile"
+          class="column is-4-desktop is-6-tablet is-12-mobile"
         >
           <nuxt-link
-            tag="div"
             :to="{ name: 'series-slug', params: { slug: aSeries.fields.slug } }"
           >
             <div class="card is-shadowless">
               <div class="card-image">
-                <figure class="image is-4by3">
+                <figure class="image is-16by9">
                   <img
                     :src="aSeries.fields.thumbnail.fields.file.url"
                     :alt="aSeries.fields.name"
@@ -47,15 +46,11 @@
                   <!--          </b-tag>-->
                 </figure>
               </div>
-              <div class="content has-background-white-bis px-3 py-3">
-                <p
-                  class="is-size-7 has-text-centered has-text-weight-medium mb-1"
-                >
+              <div class="content has-background-white px-3 py-5">
+                <p class="is-size-7 has-text-centered has-text-weight-medium">
                   SERIES{{ i + 1 }}
                 </p>
-                <h4
-                  class="is-size-6 has-text-weight-semibold has-text-centered"
-                >
+                <h4 class="is-size-6 has-text-weight-medium has-text-centered">
                   {{ aSeries.fields.name }}
                 </h4>
               </div>
@@ -126,11 +121,15 @@ export default class extends Vue {
 </script>
 
 <style lang="scss" scoped>
-div.columns {
-  margin-bottom: 60px;
+.section-title {
+  margin-top: 90px;
+  margin-bottom: 40px;
 }
+
 .card {
-  width: 240px;
+  width: 300px;
+  border: 1px solid whitesmoke;
+  background-color: lightgrey;
   .card-img {
     object-fit: cover;
 
@@ -139,7 +138,11 @@ div.columns {
     }
   }
   .content {
-    height: 120px;
+    height: 130px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
   }
 }
 .left-to-right-animation {
@@ -167,7 +170,7 @@ div.columns {
 @include pc() {
   .wrapper {
     width: 900px;
-    margin: 0 auto;
+    margin: 0 auto 60px;
   }
 }
 
@@ -175,21 +178,25 @@ div.columns {
   .wrapper {
     width: 70%;
     max-width: 900px;
-    margin: 0 auto;
+    margin: 0 auto 60px;
   }
 }
 
 @include sp() {
+  .section-title {
+    margin-top: 60px;
+    margin-bottom: 30px;
+  }
   .wrapper {
     width: 90%;
     max-width: 410px;
-    margin: 0 auto;
+    margin: 0 auto 60px;
   }
   .card {
     width: 300px;
     margin: 0 auto;
     .content {
-      height: 80px;
+      height: 100px;
     }
   }
 }

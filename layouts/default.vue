@@ -28,7 +28,7 @@ export default class extends Vue {
   // loading
   created() {
     this.$store.commit('setLoading', true)
-    setTimeout(() => this.$store.commit('setLoading', false), 2000)
+    setTimeout(() => this.$store.commit('setLoading', false), 500)
   }
 }
 </script>
