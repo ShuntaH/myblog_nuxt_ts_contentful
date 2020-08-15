@@ -9,11 +9,23 @@
           <br />
           <small
             >Powered by
-            <strong><a href="https://nuxtjs.org/">Nuxt.js</a></strong> with
             <strong>
-              <a href="https://www.typescriptlang.org/">TypeScript</a></strong
-            >
-            | Theme by <strong><a href="https://buefy.org/">Buefy</a></strong>
+              <a href="https://nuxtjs.org/" class="footer-link">
+                Nuxt.js
+              </a>
+            </strong>
+            with
+            <strong>
+              <a href="https://www.typescriptlang.org/" class="footer-link">
+                TypeScript
+              </a>
+            </strong>
+            | Theme by
+            <strong>
+              <a href="https://buefy.org/" class="footer-link">
+                Buefy
+              </a>
+            </strong>
           </small>
         </p>
         <p><small>© 2020 AoHal</small></p>
@@ -29,39 +41,40 @@ export default class Navbar extends Vue {}
 </script>
 
 <style lang="scss" scoped>
+@import '~/assets/css/buefy.scss';
 .footer-title {
   color: #4a4a4a;
 }
-@media screen and (max-width: 639px) {
-  /*スマホ用のcssを記述*/
+.footer-link {
+  color: $primary;
+}
+@include pc() {
+  .container {
+    margin: 0 auto;
+    min-height: unset;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+@include tablet() {
+  .container {
+    margin: 0 auto;
+    min-height: unset;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+@include sp() {
   .container {
     margin: 0 auto;
     min-height: unset;
     max-height: 200px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-  }
-}
-
-@media only screen and (min-width: 640px) and (max-width: 1023px) {
-  /*tablet用のcssを記述*/
-  .container {
-    margin: 0 auto;
-    min-height: unset;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  /*pc用のcssを記述*/
-  .container {
-    margin: 0 auto;
-    min-height: unset;
     display: flex;
     justify-content: center;
     align-items: center;

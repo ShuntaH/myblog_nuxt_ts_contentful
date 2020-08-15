@@ -16,14 +16,21 @@
         <li
           v-for="(post, i) in seriesRelatedPosts(this.series.fields.name)"
           :key="i"
-          class="has-text-weight-semibold pb-1 mb-5 story-list"
+          class="has-text-weight-semibold pb-1 mb-4 story-list"
         >
           <span class="is-size-6 pr-4">
             {{ i + 1 }}
           </span>
           <h4 class="is-size-7 story-name">
-            <nuxt-link to="#">{{ post.fields.title }}</nuxt-link>
+            <nuxt-link
+              :to="{ name: 'posts-slug', params: { slug: post.fields.slug } }"
+            >
+              {{ post.fields.title }}
+            </nuxt-link>
           </h4>
+          <p class="is-size-7 has-text-weight-medium">
+            {{ formatDate(post.sys.updatedAt) }}
+          </p>
         </li>
       </ul>
     </div>
@@ -55,24 +62,34 @@ export default class extends Vue {
     if (!series) error({ statusCode: 400 })
     return { series }
   }
+
+  formatDate(iso: string | number | Date) {
+    const date = new Date(iso)
+    const yyyy = String(date.getFullYear())
+    const mm = String(date.getMonth() + 1).padStart(2, '0')
+    const dd = String(date.getDate()).padStart(2, '0')
+    return `${yyyy}.${mm}.${dd}`
+  }
 }
 </script>
 
 <style lang="scss" scoped>
 .section-title {
   margin-top: 90px;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 .story-list {
   border-bottom: 0.5px solid lightgrey;
   display: flex;
   justify-content: start;
+  align-items: center;
   .story-name {
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
-    display: flex;
-    align-items: center;
+  }
+  & > :last-child {
+    margin-left: auto;
   }
 }
 ul {
