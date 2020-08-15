@@ -18,7 +18,7 @@
         </p>
       </div>
       <div
-        class="has-text-dark article-content"
+        class="has-text-dark has-text-centered"
         v-html="toHtmlString(post.fields.content)"
       ></div>
     </article>
@@ -57,7 +57,7 @@ export default class Slug extends Vue {
         }: {
           data: { target: Entry<any> }
         }): any => {
-          return `<img src="${fields.file.url}"/>`
+          return `<img src="${fields.file.url}" style="margin: 20px auto"/>`
         }
       }
     }
