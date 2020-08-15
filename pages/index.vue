@@ -10,7 +10,7 @@
       <!--なぜかpostionYを書かないとseriesのテキストのアニメーションが起動しない-->
       <p style="display: none">{{ positionY }}</p>
       <h3
-        class="has-text-centered is-size-3 is-size-4-mobile has-text-weight-semibold section-title"
+        class="has-text-centered is-size-3 is-size-4-mobile has-text-weight-semibold has-text-dark section-title"
         :class="{
           'left-to-right-animation': isAnimated,
           'initial-no-display': notDisplayed
