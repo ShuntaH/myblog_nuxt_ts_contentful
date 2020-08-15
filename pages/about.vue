@@ -1,39 +1,13 @@
 <template>
-  <article>
-    <h1 class="is-size-1 has-text-dark has-text-centered article-header">
-      About this blog
-    </h1>
-    <div class="has-text-dark article-content">
+  <article class="wrapper">
+    <div class="section-title">
+      <h2 class="is-size-2 is-size-3-mobile has-text-centered">
+        About this site
+      </h2>
+    </div>
+    <div class="has-text-dark is-size-6">
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur
-        adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
-        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-        in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
-        qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit
-        amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-        dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est
-        laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-        minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-        ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-        sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur
-        adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
-        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-        laboris nisi ut aliquip ex ea co
+        このサイトは管理人が
       </p>
     </div>
   </article>
@@ -43,18 +17,37 @@
 import { Component, Vue } from 'vue-property-decorator'
 
 @Component({
-  layout: 'article'
+  layout: 'default'
 })
 export default class about extends Vue {}
 </script>
 <style lang="scss" scoped>
-.article-header {
-  padding-bottom: 60px;
+.section-title {
+  margin-top: 90px;
+  margin-bottom: 20px;
 }
-
-.article-content {
-  padding-bottom: 100px;
-  line-height: 2;
-  letter-spacing: 0.07em;
+@include pc() {
+  .wrapper {
+    width: 900px;
+    margin: 0 auto 60px;
+  }
+}
+@include tablet() {
+  .wrapper {
+    width: 90%;
+    max-width: 900px;
+    margin: 0 auto 60px;
+  }
+}
+@include sp() {
+  .section-title {
+    margin-top: 60px;
+    margin-bottom: 70px;
+  }
+  .wrapper {
+    width: 90%;
+    max-width: 410px;
+    margin: 0 auto 60px;
+  }
 }
 </style>
