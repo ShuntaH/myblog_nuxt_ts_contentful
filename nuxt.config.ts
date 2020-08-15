@@ -58,22 +58,10 @@ export default {
     ['nuxt-buefy', { css: true, materialDesignIcons: false }],
     '@nuxtjs/dotenv',
     '@nuxtjs/markdownit',
-    'nuxt-fontawesome',
     '@nuxtjs/sitemap',
-    '@nuxtjs/style-resources'
+    '@nuxtjs/style-resources',
+    '@nuxtjs/pwa'
   ],
-  /*
-   ** FontAwesome
-   */
-  fontawesome: {
-    imports: [
-      { set: '@fortawesome/free-solid-svg-icons', icons: ['fas'] },
-      {
-        set: '@fortawesome/free-brands-svg-icons',
-        icons: ['fab']
-      }
-    ]
-  },
   markdownit: {
     injected: true,
     html: true,

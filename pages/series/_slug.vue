@@ -8,11 +8,11 @@
     />
     <div class="wrapper">
       <p
-        class="is-size-3 is-size-4-mobile has-text-weight-semibold section-title"
+        class="is-size-3 is-size-4-mobile has-text-weight-semibold has-text-dark section-title"
       >
         All Stories
       </p>
-      <ul>
+      <ul v-if="seriesRelatedPosts(this.series.fields.name)[0]">
         <li
           v-for="(post, i) in seriesRelatedPosts(this.series.fields.name)"
           :key="i"
@@ -23,7 +23,10 @@
           </span>
           <h4 class="is-size-7 story-name">
             <nuxt-link
-              :to="{ name: 'posts-slug', params: { slug: post.fields.slug } }"
+              :to="{
+                name: 'series-posts-slug',
+                params: { slug: post.fields.slug }
+              }"
             >
               {{ post.fields.title }}
             </nuxt-link>
@@ -33,6 +36,7 @@
           </p>
         </li>
       </ul>
+      <h4 v-else>No post yet...</h4>
     </div>
   </div>
 </template>
