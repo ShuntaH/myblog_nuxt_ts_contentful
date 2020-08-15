@@ -176,9 +176,12 @@ export default class extends Vue {
 
 @include tablet() {
   .wrapper {
-    width: 70%;
-    max-width: 900px;
+    width: 90%;
     margin: 0 auto 60px;
+  }
+  .card {
+    width: 100%;
+    margin: 0 auto;
   }
 }
 
@@ -189,11 +192,10 @@ export default class extends Vue {
   }
   .wrapper {
     width: 90%;
-    max-width: 410px;
     margin: 0 auto 60px;
   }
   .card {
-    width: 300px;
+    width: 100%;
     margin: 0 auto;
     .content {
       height: 100px;
