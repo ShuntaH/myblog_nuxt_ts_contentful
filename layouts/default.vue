@@ -1,5 +1,5 @@
 <template>
-  <div class="has-background-white-bis">
+  <div class="has-background-white-ter">
     <Navbar />
     <LoadingPage></LoadingPage>
     <nuxt />
