@@ -8,9 +8,9 @@
         }"
       />
     </section>
-    <article class="article">
-      <div class="article-header">
-        <h2 class="is-size-1 has-text-dark has-text-centered article-title">
+    <article class="article wrapper">
+      <div class="section-title">
+        <h2 class="is-size-3 is-size-4-mobile has-text-centered">
           {{ post.fields.title }}
         </h2>
         <p class="has-text-grey has-text-centered">
@@ -78,18 +78,13 @@ export default class Slug extends Vue {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  margin-top: 10px;
 }
-.article-header {
-  padding-bottom: 60px;
-  .article-title {
-  }
+.section-title {
+  margin-top: 90px;
+  margin-bottom: 20px;
 }
 
-.article-content {
-  padding-bottom: 100px;
-  line-height: 2;
-  letter-spacing: 0.07em;
-}
 @include pc() {
   .wrapper {
     width: 900px;
@@ -99,7 +94,7 @@ export default class Slug extends Vue {
 
 @include tablet() {
   .wrapper {
-    width: 70%;
+    width: 90%;
     max-width: 900px;
     margin: 0 auto 60px;
   }
@@ -108,7 +103,7 @@ export default class Slug extends Vue {
 @include sp() {
   .section-title {
     margin-top: 60px;
-    margin-bottom: 30px;
+    margin-bottom: 70px;
   }
   .wrapper {
     width: 90%;

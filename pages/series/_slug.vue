@@ -104,8 +104,7 @@ ul {
 
 @include tablet() {
   .wrapper {
-    width: 70%;
-    max-width: 900px;
+    width: 90%;
     margin: 0 auto 60px;
   }
 }
@@ -113,7 +112,6 @@ ul {
 @include sp() {
   .wrapper {
     width: 90%;
-    max-width: 410px;
     margin: 0 auto 60px;
   }
   .section-title {
