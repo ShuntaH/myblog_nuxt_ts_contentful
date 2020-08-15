@@ -1,46 +1,52 @@
 <template>
-  <article class="article">
-    <div class="article-header">
-      <h1 class="is-size-1 has-text-dark has-text-centered article-title">
-        {{ currentPost.fields.title }}
-      </h1>
-      <p class="has-text-grey has-text-centered">
-        {{ formatDate(currentPost.sys.createdAt) }}
-        &nbsp;
-        <b-tag rounded>
-          {{ currentPost.fields.category.fields.name }}
-        </b-tag>
-      </p>
-    </div>
-    <div
-      class="has-text-dark article-content"
-      v-html="toHtmlString(currentPost.fields.content)"
-    ></div>
-  </article>
+  <div>
+    <section class="hero is-medium">
+      <div
+        class="hero-body"
+        :style="{
+          backgroundImage: `url(${this.post.fields.thumbnail.fields.file.url})`
+        }"
+      />
+    </section>
+    <article class="article">
+      <div class="article-header">
+        <h2 class="is-size-1 has-text-dark has-text-centered article-title">
+          {{ post.fields.title }}
+        </h2>
+        <p class="has-text-grey has-text-centered">
+          {{ formatDate(post.sys.createdAt) }}
+        </p>
+      </div>
+      <div
+        class="has-text-dark article-content"
+        v-html="toHtmlString(post.fields.content)"
+      ></div>
+    </article>
+  </div>
 </template>
 
 <script lang="ts">
+import { Context } from '@nuxt/types'
 import { Component, Vue } from 'vue-property-decorator'
+import { Entry } from 'contentful/index'
 import { BLOCKS } from '@contentful/rich-text-types'
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
 
 @Component({
-  layout: 'article',
-  async asyncData({ payload, store, params, error }) {
-    const currentPost =
-      payload ||
-      (await store.state.posts.find(
-        (post: { fields: any }) => post.fields.slug === params.slug
-      ))
-
-    if (currentPost) {
-      return { currentPost }
-    } else {
-      return error({ statusCode: 400 })
-    }
-  }
+  layout: 'default'
 })
 export default class Slug extends Vue {
+  asyncData({ payload, store, params, error }: Context) {
+    const post =
+      payload ||
+      store.state.posts.find(
+        (post: Entry<any>) => post.fields.slug === params.slug
+      )
+
+    if (!post) error({ statusCode: 400 })
+    return { post }
+  }
+
   toHtmlString(obj: any) {
     const options: object = {
       renderNode: {
@@ -49,7 +55,7 @@ export default class Slug extends Vue {
             target: { fields }
           }
         }: {
-          data: { target: { fields: any } }
+          data: { target: Entry<any> }
         }): any => {
           return `<img src="${fields.file.url}"/>`
         }
@@ -68,6 +74,11 @@ export default class Slug extends Vue {
 }
 </script>
 <style lang="scss" scoped>
+.hero-body {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
 .article-header {
   padding-bottom: 60px;
   .article-title {
@@ -78,5 +89,31 @@ export default class Slug extends Vue {
   padding-bottom: 100px;
   line-height: 2;
   letter-spacing: 0.07em;
+}
+@include pc() {
+  .wrapper {
+    width: 900px;
+    margin: 0 auto 60px;
+  }
+}
+
+@include tablet() {
+  .wrapper {
+    width: 70%;
+    max-width: 900px;
+    margin: 0 auto 60px;
+  }
+}
+
+@include sp() {
+  .section-title {
+    margin-top: 60px;
+    margin-bottom: 30px;
+  }
+  .wrapper {
+    width: 90%;
+    max-width: 410px;
+    margin: 0 auto 60px;
+  }
 }
 </style>
