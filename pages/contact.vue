@@ -1,9 +1,11 @@
 <template>
-  <div>
-    <h1 class="is-size-1 has-text-dark has-text-centered article-header">
-      Contact Form
-    </h1>
-    <div class="has-text-dark article-content">
+  <div class="wrapper">
+    <div class="section-title">
+      <h2 class="is-size-2 is-size-3-mobile has-text-centered">
+        Contact
+      </h2>
+    </div>
+    <div class="has-text-dark">
       <section>
         <form name="contact" method="POST" data-netlify="true">
           <input type="hidden" name="form-name" value="contact" />
@@ -20,7 +22,7 @@
             <b-input maxlength="400" type="textarea" name="message"></b-input>
           </b-field>
           <b-field>
-            <p class="control">
+            <p class="control has-text-centered">
               <button type="submit" class="button is-primary">
                 Send message
               </button>
@@ -35,18 +37,37 @@
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 @Component({
-  layout: 'article'
+  layout: 'default'
 })
 export default class contact extends Vue {}
 </script>
 <style lang="scss" scoped>
-.article-header {
-  padding-bottom: 60px;
+.section-title {
+  padding-top: 90px;
+  padding-bottom: 20px;
 }
-
-.article-content {
-  padding-bottom: 100px;
-  line-height: 2;
-  letter-spacing: 0.07em;
+@include pc() {
+  .wrapper {
+    width: 900px;
+    margin: 0 auto 60px;
+  }
+}
+@include tablet() {
+  .wrapper {
+    width: 90%;
+    max-width: 900px;
+    margin: 0 auto 60px;
+  }
+}
+@include sp() {
+  .section-title {
+    margin-top: 60px;
+    margin-bottom: 70px;
+  }
+  .wrapper {
+    width: 90%;
+    max-width: 410px;
+    margin: 0 auto 60px;
+  }
 }
 </style>

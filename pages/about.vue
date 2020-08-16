@@ -14,7 +14,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue } from 'nuxt-property-decorator'
 
 @Component({
   layout: 'default'
@@ -23,8 +23,8 @@ export default class about extends Vue {}
 </script>
 <style lang="scss" scoped>
 .section-title {
-  margin-top: 90px;
-  margin-bottom: 20px;
+  padding-top: 90px;
+  padding-bottom: 20px;
 }
 @include pc() {
   .wrapper {
