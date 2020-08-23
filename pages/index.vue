@@ -1,7 +1,7 @@
 <template>
   <div>
     <Hero
-      hero-title="日本の大学生とタイの女の子の恋の回顧録"
+      hero-title="そのうち記事書くかもしれない"
       hero-subtitle="From 2018 to 2020"
       hero-title-color="has-text-white"
       :hero-background-img-url="heroBackgroundImgUrl"
