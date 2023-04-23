@@ -22,7 +22,7 @@
     "contentful": "^10.1.0",
     "dotenv": "latest",
     "eslint-loader": "^3.0.3",
-    "nuxt": "^2.13.3",
+    "nuxt": "^2.16.3",
     "nuxt-buefy": "^0.3.31",
     "nuxt-property-decorator": "^2.7.2",
     "vue": "^2.6.11",
@@ -45,6 +45,6 @@
     "sass": "^1.62.0",
     "sass-loader": "^10.4.1",
     "vue-property-decorator": "^8.5.1",
-    "webpack": "^4.46.0"
+    "webpack": "^5.80.0"
   }
 }
