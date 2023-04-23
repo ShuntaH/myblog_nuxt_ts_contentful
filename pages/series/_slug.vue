@@ -1,10 +1,10 @@
 <template>
   <div>
     <Hero
-      :hero-title="this.series.fields.name"
+      :hero-title="series.fields.name"
       hero-subtitle="From 2018 to 2020"
       hero-title-color="has-text-black-bis"
-      :hero-background-img-url="this.series.fields.thumbnail.fields.file.url"
+      :hero-background-img-url="series.fields.thumbnail.fields.file.url"
     />
     <div class="wrapper">
       <p
@@ -12,9 +12,9 @@
       >
         All Stories
       </p>
-      <ul v-if="seriesRelatedPosts(this.series.fields.name)[0]">
+      <ul v-if="seriesRelatedPosts(series.fields.name)[0]">
         <li
-          v-for="(post, i) in seriesRelatedPosts(this.series.fields.name)"
+          v-for="(post, i) in seriesRelatedPosts(series.fields.name)"
           :key="i"
           class="has-text-weight-semibold pb-1 mb-4 story-list"
         >
@@ -45,7 +45,7 @@
 import { Context } from '@nuxt/types'
 import { Component, Vue } from 'nuxt-property-decorator'
 import { mapGetters } from 'vuex'
-import { Entry } from 'contentful/index'
+import { Entry } from 'contentful'
 import Hero from '~/components/Hero.vue'
 
 @Component({

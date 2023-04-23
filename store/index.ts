@@ -1,4 +1,4 @@
-import { Entry, EntryCollection } from 'contentful/index'
+import { Entry, EntryCollection, EntrySkeletonType } from 'contentful'
 import { createClient } from '~/plugins/contentful'
 const client = createClient()
 
@@ -11,6 +11,7 @@ export const state = () => ({
 export const getters = {
   seriesRelatedPosts: (state: any) => (series: string) => {
     return state.posts.filter(
+      // @ts-ignore
       (post: Entry<any>) => post.fields.series.fields.name === series
     )
   }
@@ -32,12 +33,17 @@ export const mutations = {
 export const actions = {
   // @ts-ignore
   async getPosts({ commit }) {
+
     await client
       .getEntries({
+        // @ts-ignore
         content_type: process.env.CTF_BLOG_POST_TYPE_ID,
+        // @ts-ignore
         order: '-sys.createdAt'
       })
-      .then((res: EntryCollection<unknown>) => commit('setPosts', res.items))
+      .then((res: EntryCollection<EntrySkeletonType>) =>
+        commit('setPosts', res.items)
+      )
       .catch(console.error)
   },
   // @ts-ignore
@@ -45,9 +51,12 @@ export const actions = {
     await client
       .getEntries({
         content_type: 'series',
+        // @ts-ignore
         order: 'fields.sort'
       })
-      .then((res: EntryCollection<unknown>) => commit('setSeries', res.items))
+      .then((res: EntryCollection<EntrySkeletonType>) =>
+        commit('setSeries', res.items)
+      )
       .catch(console.error)
   }
 }
