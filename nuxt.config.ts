@@ -1,4 +1,4 @@
-import { ContentfulClientApi, Entry } from 'contentful/index'
+import { ContentfulClientApi, Entry } from 'contentful'
 const contentful = require('contentful/')
 require('dotenv').config()
 
@@ -69,11 +69,13 @@ export default {
   },
   generate: {
     routes() {
-      const client: ContentfulClientApi = contentful.createClient({
+      const client: ContentfulClientApi<any> = contentful.createClient({
         space: process.env.CTF_SPACE_ID,
         accessToken: process.env.CTF_ACCESS_TOKEN
       })
+
       return Promise.all([
+        // @ts-ignore
         client.getEntries({ content_type: process.env.CTF_BLOG_POST_TYPE_ID }),
         client.getEntries({ content_type: 'category' }),
         client.getEntries({ content_type: 'series' })

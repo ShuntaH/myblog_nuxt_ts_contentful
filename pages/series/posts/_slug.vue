@@ -4,7 +4,7 @@
       <div
         class="hero-body"
         :style="{
-          backgroundImage: `url(${this.post.fields.thumbnail.fields.file.url})`
+          backgroundImage: `url(${post.fields.thumbnail.fields.file.url})`
         }"
       />
     </section>
@@ -28,7 +28,7 @@
 <script lang="ts">
 import { Context } from '@nuxt/types'
 import { Component, Vue } from 'vue-property-decorator'
-import { Entry } from 'contentful/index'
+import { Entry } from 'contentful'
 import { BLOCKS } from '@contentful/rich-text-types'
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
 
@@ -57,6 +57,8 @@ export default class Slug extends Vue {
         }: {
           data: { target: Entry<any> }
         }): any => {
+          if (!fields) return ''
+          // ts-ignore
           return `<img src="${fields.file.url}" style="margin: 20px auto"/>`
         }
       }

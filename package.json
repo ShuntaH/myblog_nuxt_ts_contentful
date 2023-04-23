@@ -15,7 +15,7 @@
     "@contentful/rich-text-html-renderer": "^13.4.0",
     "@nuxt/typescript-runtime": "^0.3.10",
     "@nuxtjs/dotenv": "^1.4.1",
-    "@nuxtjs/markdownit": "^1.2.10",
+    "@nuxtjs/markdownit": "^2.0.0",
     "@nuxtjs/pwa": "^3.0.0-beta.20",
     "@nuxtjs/sitemap": "^2.4.0",
     "bulma": "^0.9.0",
@@ -33,16 +33,18 @@
     "@nuxt/typescript-build": "^0.5.8",
     "@nuxtjs/eslint-config-typescript": "^1.0.2",
     "@nuxtjs/eslint-module": "^1.2.0",
-    "@nuxtjs/style-resources": "^1.0.0",
+    "@nuxtjs/style-resources": "^1.2.1",
     "@types/marked": "^0.7.4",
     "babel-eslint": "^10.1.0",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-nuxt": "^0.5.2",
     "eslint-plugin-prettier": "^3.1.4",
-    "node-sass": "^7.0.0",
+    "fibers": "^5.0.3",
     "prettier": "^1.19.1",
-    "sass-loader": "^8.0.2",
-    "vue-property-decorator": "^8.5.1"
+    "sass": "^1.62.0",
+    "sass-loader": "^10.4.1",
+    "vue-property-decorator": "^8.5.1",
+    "webpack": "^4.46.0"
   }
 }
