@@ -22,7 +22,7 @@
     "contentful": "^10.1.0",
     "dotenv": "latest",
     "eslint-loader": "^3.0.3",
-    "nuxt": "^2.13.3",
+    "nuxt": "^3.4.3",
     "nuxt-buefy": "^0.3.31",
     "nuxt-property-decorator": "^2.7.2",
     "vue": "^2.6.11",
